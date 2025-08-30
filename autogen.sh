@@ -2,6 +2,24 @@
 
 app_root_dir="diagrams"
 
+# Parse command line arguments
+UPDATE_AZURE=false
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --update-azure) UPDATE_AZURE=true ;;
+        --help) echo "Usage: $0 [--update-azure]"; echo "  --update-azure: Update Azure icons from Microsoft before processing"; exit 0 ;;
+        *) echo "Unknown parameter: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+# Update Azure icons if requested
+if [ "$UPDATE_AZURE" = true ]; then
+    echo "Updating Azure icons from Microsoft..."
+    python -m scripts.resource update_azure azure
+    echo "Azure icons updated successfully"
+fi
+
 # NOTE: azure icon set is not latest version
 providers=(
   "onprem"

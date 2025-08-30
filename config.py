@@ -479,3 +479,80 @@ ALIASES = {
         }
     },
 }
+
+#########################
+# Azure Icon Updates    #
+#########################
+
+# Azure icon source configuration
+AZURE_ICON_SOURCE = {
+    "current_version": "22",
+    # Update this URL when Microsoft releases new icons
+    # Download from: https://learn.microsoft.com/en-us/azure/architecture/icons/
+    "download_url": "https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V22.zip",
+    "last_updated": "2025-08-30",
+    "backup_dir": ".azure_backups",
+}
+
+# Category mapping from Microsoft folders to diagrams structure
+AZURE_CATEGORY_MAP = {
+    # Standard Azure categories - Title case (older versions)
+    "AI + Machine Learning": "ml",
+    "Analytics": "analytics",
+    "Compute": "compute",
+    "Containers": "compute",
+    "Databases": "database",
+    "Developer Tools": "devops",
+    "DevOps": "devops",
+    "Hybrid + Multicloud": "integration",
+    "Identity": "identity",
+    "Integration": "integration",
+    "Internet of Things": "iot",
+    "IoT": "iot",
+    "Management + Governance": "monitor",
+    "Management and Governance": "monitor",
+    "Migrate": "migration",
+    "Migration": "migration",
+    "Mixed Reality": "ml",
+    "Mobile": "mobile",
+    "Monitor": "monitor",
+    "Networking": "network",
+    "Security": "security",
+    "Storage": "storage",
+    "Web": "web",
+    "Windows Virtual Desktop": "compute",
+    "General": "general",
+    
+    # Lowercase versions (newer icon packages use lowercase)
+    "ai + machine learning": "ml",
+    "analytics": "analytics",
+    "app services": "web",
+    "azure ecosystem": "general",
+    "azure stack": "integration",
+    "blockchain": "database",
+    "compute": "compute",
+    "containers": "compute",
+    "databases": "database",
+    "devops": "devops",
+    "general": "general",
+    "hybrid + multicloud": "integration",
+    "identity": "identity",
+    "integration": "integration",
+    "intune": "identity",
+    "iot": "iot",
+    "management + governance": "monitor",
+    "menu": "general",
+    "migrate": "migration",
+    "migration": "migration",
+    "mixed reality": "ml",
+    "mobile": "mobile",
+    "monitor": "monitor",
+    "networking": "network",
+    "new icons": "general",
+    "other": "general",
+    "security": "security",
+    "storage": "storage",
+    "web": "web",
+    
+    # Add new categories as Microsoft introduces them
+}

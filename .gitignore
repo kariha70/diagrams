@@ -29,3 +29,11 @@ website/package-lock.json
 
 # Ignore .swp files
 .swp
+
+# Ignore files related to AI tools
+# Claude
+.claude/
+CLAUDE.md
+
+#backups
+.azure_backups/

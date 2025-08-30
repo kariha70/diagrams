@@ -217,12 +217,31 @@ def svg2png2(pvd: str) -> None:
         [_convert(root, path) for path in svgs]
 
 
+# Import Azure updater functions
+try:
+    from .azure_updater import (
+        update_azure,
+        backup_azure,
+        rollback_azure,
+        check_azure_updates
+    )
+    azure_commands = {
+        "update_azure": update_azure,
+        "backup_azure": backup_azure,
+        "rollback_azure": rollback_azure,
+        "check_azure": check_azure_updates,
+    }
+except ImportError:
+    # Azure updater not available
+    azure_commands = {}
+
 # fmt: off
 commands = {
     "clean": clean_png,
     "round": round_png,
     "svg2png": svg2png,
     "svg2png2": svg2png2,
+    **azure_commands,  # Add Azure commands if available
 }
 # fmt: on
 
