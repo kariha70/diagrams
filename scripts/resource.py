@@ -189,8 +189,55 @@ def round_png(pvd: str) -> None:
         [_round(root, path) for path in paths]
 
 
-def svg2png(pvd: str) -> None:
-    """Convert the svg into png"""
+def svg2png_sharp(pvd: str) -> None:
+    """Convert SVG to PNG using sharp (Node.js) converter for better performance."""
+    try:
+        from .svg_converter import SharpConverter, has_sharp_converter
+        
+        if not has_sharp_converter():
+            print("Sharp converter not available, falling back to inkscape")
+            return svg2png_inkscape(pvd)
+        
+        converter = SharpConverter(
+            concurrency=cfg.SHARP_CONCURRENCY,
+            quality=cfg.SHARP_QUALITY,
+            size=cfg.SHARP_SIZE,
+            verbose=True
+        )
+        
+        input_dir = resource_dir(pvd)
+        output_dir = resource_dir(pvd)
+        
+        print(f"Converting SVGs using sharp converter (concurrency: {cfg.SHARP_CONCURRENCY})")
+        stats = converter.convert_directory(
+            input_dir,
+            output_dir,
+            preserve_structure=True
+        )
+        
+        print(f"Conversion complete: {stats['processed']} processed, {stats['failed']} failed")
+        
+        # Remove original SVG files after successful conversion
+        if stats['processed'] > 0:
+            for root, _, files in os.walk(resource_dir(pvd)):
+                svgs = filter(lambda f: f.endswith(".svg"), files)
+                for svg in svgs:
+                    svg_path = os.path.join(root, svg)
+                    # Check if corresponding PNG exists before removing SVG
+                    png_path = svg_path.replace('.svg', '.png')
+                    if os.path.exists(png_path):
+                        os.remove(svg_path)
+                        
+    except ImportError:
+        print("Sharp converter module not found, falling back to inkscape")
+        return svg2png_inkscape(pvd)
+    except Exception as e:
+        print(f"Sharp converter failed: {e}, falling back to inkscape")
+        return svg2png_inkscape(pvd)
+
+
+def svg2png_inkscape(pvd: str) -> None:
+    """Convert the svg into png using inkscape (original implementation)."""
 
     def _convert(base: str, path: str):
         path = os.path.join(base, path)
@@ -200,6 +247,36 @@ def svg2png(pvd: str) -> None:
     for root, _, files in os.walk(resource_dir(pvd)):
         svgs = filter(lambda f: f.endswith(".svg"), files)
         [_convert(root, path) for path in svgs]
+
+
+def svg2png(pvd: str) -> None:
+    """Convert the svg into png - automatically selects the best converter."""
+    
+    # Check environment variable first (set by autogen.sh)
+    converter = os.environ.get('DIAGRAMS_SVG_CONVERTER', None)
+    
+    # If not set, check configured converter preference
+    if not converter:
+        converter = getattr(cfg, 'SVG_CONVERTER', 'auto')
+    
+    if converter == "sharp":
+        return svg2png_sharp(pvd)
+    elif converter == "imagemagick":
+        return svg2png2(pvd)
+    elif converter == "inkscape":
+        return svg2png_inkscape(pvd)
+    elif converter == "auto":
+        # Try sharp first for better performance, fall back to inkscape
+        try:
+            from .svg_converter import has_sharp_converter
+            if has_sharp_converter():
+                return svg2png_sharp(pvd)
+        except ImportError:
+            pass
+        return svg2png_inkscape(pvd)
+    else:
+        # Default to inkscape for unknown converter types
+        return svg2png_inkscape(pvd)
 
 
 def svg2png2(pvd: str) -> None:
@@ -241,6 +318,8 @@ commands = {
     "round": round_png,
     "svg2png": svg2png,
     "svg2png2": svg2png2,
+    "svg2png_sharp": svg2png_sharp,  # Direct access to sharp converter
+    "svg2png_inkscape": svg2png_inkscape,  # Direct access to inkscape converter
     **icon_commands,  # Add icon update commands if available
 }
 # fmt: on

@@ -66,13 +66,19 @@ To be able to develop and run diagrams locally on you Mac device, you should hav
 5. Run unit tests to confirm that it's working.
 
     ```shell
-    python -m unittest tests/*.py -v
+    poetry run python -m unittest tests/*.py -v
     ```
+
+    Note: Always use `poetry run` prefix or activate Poetry shell with `poetry shell` to use the correct virtual environment.
 
 6. Run the bash script `autogen.sh` to test.
 
     ```shell
     ./autogen.sh
     ```
+
+    Optional performance flags:
+    - `--use-sharp`: Use Node.js sharp converter for faster SVG to PNG conversion (requires Node.js)
+    - `--update-azure`: Update Azure icons from Microsoft before processing
 
 7. If the unit tests and the bash script `autogen.sh` is working correctly, then your system is now ready for development.

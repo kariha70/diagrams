@@ -43,6 +43,17 @@ CMD_SVG2PNG_OPTS = ("-w", "256", "-h", "256", "--export-type", "png")
 CMD_SVG2PNG_IM = "convert"
 CMD_SVG2PNG_IM_OPTS = ("-shave", "25%x25%", "-resize", "256x256!")
 
+# SVG Converter Configuration
+# Options: "inkscape", "imagemagick", "sharp", "auto"
+# "auto" will use sharp if available, otherwise fall back to inkscape
+SVG_CONVERTER = "auto"
+
+# Sharp converter settings (when available)
+SHARP_CONVERTER_PATH = "scripts/svg_converter/converter.js"
+SHARP_CONCURRENCY = 4  # Number of parallel conversions
+SHARP_QUALITY = "high"  # Options: "fast", "balanced", "high"
+SHARP_SIZE = 256  # Output size in pixels
+
 FILE_PREFIXES = {
     "onprem": (),
     "aws": ("Amazon-", "AWS-"),
