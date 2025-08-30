@@ -44,7 +44,7 @@ def get_current_icons(pvd: str) -> Set[str]:
     return icons
 
 
-def backup_azure(pvd: str) -> str:
+def backup_icons(pvd: str) -> str:
     """
     Backup current Azure icons.
     
@@ -311,7 +311,7 @@ def save_report(report: str, stats: Dict) -> None:
     print(f"JSON report saved to: {json_path}")
 
 
-def update_azure(pvd: str) -> None:
+def update_icons(pvd: str) -> None:
     """
     Complete Azure icon update pipeline.
     
@@ -322,7 +322,7 @@ def update_azure(pvd: str) -> None:
     4. Generates update report
     """
     if pvd != "azure":
-        print(f"Error: update_azure only works for 'azure' provider, got '{pvd}'")
+        print(f"Error: update_icons only works for 'azure' provider, got '{pvd}'")
         return
     
     print("\n=== Starting Azure Icon Update ===\n")
@@ -334,7 +334,7 @@ def update_azure(pvd: str) -> None:
         
         # Step 2: Backup current icons
         print("\nBacking up current icons...")
-        backup_path = backup_azure(pvd)
+        backup_path = backup_icons(pvd)
         
         # Step 3: Download new icons
         print("\nDownloading new icons...")
@@ -386,16 +386,16 @@ def update_azure(pvd: str) -> None:
         print("\nYou may need to:")
         print("  1. Check AZURE_ICON_SOURCE configuration in config.py")
         print("  2. Verify the download URL is correct")
-        print("  3. Run rollback if needed: python -m scripts.resource rollback_azure azure")
+        print("  3. Run rollback if needed: python -m scripts.resource rollback_icons azure")
         raise
 
 
-def rollback_azure(pvd: str) -> None:
+def rollback_icons(pvd: str) -> None:
     """
     Rollback to a previous Azure icon backup.
     """
     if pvd != "azure":
-        print(f"Error: rollback_azure only works for 'azure' provider, got '{pvd}'")
+        print(f"Error: rollback_icons only works for 'azure' provider, got '{pvd}'")
         return
     
     if hasattr(cfg, 'AZURE_ICON_SOURCE'):
@@ -457,7 +457,7 @@ def rollback_azure(pvd: str) -> None:
 
 
 # Command functions for resource.py integration
-def check_azure_updates(pvd: str) -> None:
+def check_icon_updates(pvd: str) -> None:
     """Check if Azure icon updates are available (placeholder)."""
     print("Azure update checking not yet implemented.")
     print("Please manually check: https://learn.microsoft.com/en-us/azure/architecture/icons/")

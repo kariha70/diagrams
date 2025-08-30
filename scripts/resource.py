@@ -220,20 +220,20 @@ def svg2png2(pvd: str) -> None:
 # Import Azure updater functions
 try:
     from .azure_updater import (
-        update_azure,
-        backup_azure,
-        rollback_azure,
-        check_azure_updates
+        update_icons,
+        backup_icons,
+        rollback_icons,
+        check_icon_updates
     )
-    azure_commands = {
-        "update_azure": update_azure,
-        "backup_azure": backup_azure,
-        "rollback_azure": rollback_azure,
-        "check_azure": check_azure_updates,
+    icon_commands = {
+        "update_icons": update_icons,
+        "backup_icons": backup_icons,
+        "rollback_icons": rollback_icons,
+        "check_icons": check_icon_updates,
     }
 except ImportError:
-    # Azure updater not available
-    azure_commands = {}
+    # Icon updater not available
+    icon_commands = {}
 
 # fmt: off
 commands = {
@@ -241,7 +241,7 @@ commands = {
     "round": round_png,
     "svg2png": svg2png,
     "svg2png2": svg2png2,
-    **azure_commands,  # Add Azure commands if available
+    **icon_commands,  # Add icon update commands if available
 }
 # fmt: on
 

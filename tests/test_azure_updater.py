@@ -85,19 +85,19 @@ class AzureUpdaterTest(unittest.TestCase):
             self.assertIn("compute/vm.png", icons)
             self.assertIn("storage/blob.png", icons)
     
-    def test_backup_azure_no_existing(self):
+    def test_backup_icons_no_existing(self):
         """Test backup when no existing icons."""
         # Don't create the resource dir to simulate no existing icons
         non_existent_dir = os.path.join(self.test_dir, "non_existent")
         
         with patch('scripts.azure_updater.resource_dir', return_value=non_existent_dir):
             with patch('builtins.print') as mock_print:
-                azure_updater.backup_azure("azure")
+                azure_updater.backup_icons("azure")
                 
                 # Should print message about no existing icons
                 mock_print.assert_called_with(f"No existing Azure icons to backup at {non_existent_dir}")
     
-    def test_backup_azure_with_existing(self):
+    def test_backup_icons_with_existing(self):
         """Test backup with existing icons."""
         # Create some test files
         test_file = os.path.join(self.resource_dir, "test.png")
@@ -105,7 +105,7 @@ class AzureUpdaterTest(unittest.TestCase):
             f.write("test content")
         
         with patch('scripts.azure_updater.resource_dir', return_value=self.resource_dir):
-            result = azure_updater.backup_azure("azure")
+            result = azure_updater.backup_icons("azure")
             
             # Check backup was created
             self.assertTrue(os.path.exists(result))
@@ -251,10 +251,10 @@ class AzureUpdaterTest(unittest.TestCase):
     
     @patch('scripts.azure_updater.download_azure_icons')
     @patch('scripts.azure_updater.map_and_copy_icons')
-    @patch('scripts.azure_updater.backup_azure')
+    @patch('scripts.azure_updater.backup_icons')
     @patch('scripts.azure_updater.generate_update_report')
     @patch('scripts.azure_updater.save_report')
-    def test_update_azure_full_pipeline(self, mock_save, mock_report, mock_backup, mock_map, mock_download):
+    def test_update_icons_full_pipeline(self, mock_save, mock_report, mock_backup, mock_map, mock_download):
         """Test complete update pipeline."""
         # Setup mocks
         mock_download.return_value = "/tmp/extracted"
@@ -268,7 +268,7 @@ class AzureUpdaterTest(unittest.TestCase):
         
         with patch('scripts.azure_updater.resource_dir', return_value=self.resource_dir):
             with patch('shutil.rmtree'):
-                azure_updater.update_azure("azure")
+                azure_updater.update_icons("azure")
         
         # Verify all steps were called
         mock_backup.assert_called_once()
@@ -277,13 +277,13 @@ class AzureUpdaterTest(unittest.TestCase):
         mock_report.assert_called_once()
         mock_save.assert_called_once()
     
-    def test_update_azure_wrong_provider(self):
+    def test_update_icons_wrong_provider(self):
         """Test update fails for non-azure provider."""
         with patch('builtins.print') as mock_print:
-            azure_updater.update_azure("aws")
-            mock_print.assert_called_with("Error: update_azure only works for 'azure' provider, got 'aws'")
+            azure_updater.update_icons("aws")
+            mock_print.assert_called_with("Error: update_icons only works for 'azure' provider, got 'aws'")
     
-    def test_rollback_azure(self):
+    def test_rollback_icons(self):
         """Test rollback functionality."""
         # Create a backup
         backup_path = os.path.join(self.backup_dir, "20240101_120000")
@@ -294,14 +294,14 @@ class AzureUpdaterTest(unittest.TestCase):
         with patch('scripts.azure_updater.resource_dir', return_value=self.resource_dir):
             with patch('builtins.input', return_value='1'):
                 with patch('builtins.print'):
-                    azure_updater.rollback_azure("azure")
+                    azure_updater.rollback_icons("azure")
         
         # Check file was restored
         self.assertTrue(os.path.exists(os.path.join(self.resource_dir, "test.png")))
         with open(os.path.join(self.resource_dir, "test.png")) as f:
             self.assertEqual(f.read(), "backup content")
     
-    def test_rollback_azure_cancel(self):
+    def test_rollback_icons_cancel(self):
         """Test rollback cancellation."""
         # Create a backup so there's something to rollback
         backup_path = os.path.join(self.backup_dir, "20240101_120000")
@@ -309,16 +309,16 @@ class AzureUpdaterTest(unittest.TestCase):
         
         with patch('builtins.input', return_value='c'):
             with patch('builtins.print') as mock_print:
-                azure_updater.rollback_azure("azure")
+                azure_updater.rollback_icons("azure")
                 
                 # Check that cancellation message was printed
                 print_calls = [str(call) for call in mock_print.call_args_list]
                 self.assertTrue(any("cancelled" in call.lower() for call in print_calls))
     
-    def test_check_azure_updates(self):
+    def test_check_icon_updates(self):
         """Test check for updates (placeholder function)."""
         with patch('builtins.print') as mock_print:
-            azure_updater.check_azure_updates("azure")
+            azure_updater.check_icon_updates("azure")
             
             # Should print placeholder message
             calls = [str(call) for call in mock_print.call_args_list]
@@ -334,20 +334,20 @@ class ResourceIntegrationTest(unittest.TestCase):
         from scripts import resource
         
         # Check commands are in the dictionary
-        self.assertIn('update_azure', resource.commands)
-        self.assertIn('backup_azure', resource.commands)
-        self.assertIn('rollback_azure', resource.commands)
-        self.assertIn('check_azure', resource.commands)
+        self.assertIn('update_icons', resource.commands)
+        self.assertIn('backup_icons', resource.commands)
+        self.assertIn('rollback_icons', resource.commands)
+        self.assertIn('check_icons', resource.commands)
     
     def test_azure_commands_callable(self):
         """Test that Azure commands are callable."""
         from scripts import resource
         
         # Check commands are callable functions
-        self.assertTrue(callable(resource.commands['update_azure']))
-        self.assertTrue(callable(resource.commands['backup_azure']))
-        self.assertTrue(callable(resource.commands['rollback_azure']))
-        self.assertTrue(callable(resource.commands['check_azure']))
+        self.assertTrue(callable(resource.commands['update_icons']))
+        self.assertTrue(callable(resource.commands['backup_icons']))
+        self.assertTrue(callable(resource.commands['rollback_icons']))
+        self.assertTrue(callable(resource.commands['check_icons']))
 
 
 if __name__ == '__main__':

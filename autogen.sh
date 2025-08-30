@@ -16,7 +16,7 @@ done
 # Update Azure icons if requested
 if [ "$UPDATE_AZURE" = true ]; then
     echo "Updating Azure icons from Microsoft..."
-    python -m scripts.resource update_azure azure
+    python -m scripts.resource update_icons azure
     echo "Azure icons updated successfully"
 fi
 
