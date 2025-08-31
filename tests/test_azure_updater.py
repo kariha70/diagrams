@@ -324,6 +324,139 @@ class AzureUpdaterTest(unittest.TestCase):
             calls = [str(call) for call in mock_print.call_args_list]
             self.assertTrue(any("not yet implemented" in call for call in calls))
             self.assertTrue(any("test_v1" in call for call in calls))  # Current version
+    
+    def test_filename_cleansing_basic(self):
+        """Test basic filename cleansing rules."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # (input, expected)
+            ('simple', 'simple'),
+            ('UPPERCASE', 'uppercase'),
+            ('MixedCase', 'mixedcase'),
+            ('with_underscore', 'with-underscore'),
+            ('multiple___underscores', 'multiple---underscores'),
+            ('with spaces', 'with-spaces'),
+            ('multiple  spaces', 'multiple-spaces'),
+            ('with(parentheses)', 'withparentheses'),
+            ('(multiple)(parentheses)', 'multipleparentheses'),
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected, 
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_azure_prefixes(self):
+        """Test Azure prefix removal in filename cleansing."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # Azure prefixes should be removed
+            ('Azure-Service', 'service'),
+            ('Azure_Service', 'service'),  # underscore becomes dash, then prefix removed
+            ('Azure-Compute-VM', 'compute-vm'),
+            ('Azure_Storage_Blob', 'storage-blob'),
+            
+            # Non-Azure prefixes should remain
+            ('AWS-Service', 'aws-service'),
+            ('GCP-Service', 'gcp-service'),
+            ('NotAzure-Service', 'notazure-service'),
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_complex(self):
+        """Test complex filename cleansing scenarios."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # Complex combinations
+            ('Azure_Virtual_Machine_(Premium)', 'virtual-machine-premium'),
+            ('Azure-Storage Account (Standard)', 'storage-account-standard'),
+            ('VM_Scale_Set', 'vm-scale-set'),
+            ('Load Balancer (Internal)', 'load-balancer-internal'),
+            ('App_Service_Plan', 'app-service-plan'),
+            ('Function App', 'function-app'),
+            ('SQL Database', 'sql-database'),
+            ('Key Vault', 'key-vault'),
+            ('Event Grid Topic', 'event-grid-topic'),
+            ('Container Registry', 'container-registry'),
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_in_update_pipeline(self):
+        """Test that filename cleansing is applied during icon update."""
+        # Create test source directory with icons
+        source_dir = os.path.join(self.test_dir, "source")
+        os.makedirs(os.path.join(source_dir, "Compute"), exist_ok=True)
+        
+        # Create test SVG files with names that need cleansing
+        test_files = [
+            'Azure_Virtual_Machine.svg',
+            'VM Scale Set.svg',
+            'Load_Balancer_(Internal).svg',
+        ]
+        
+        for filename in test_files:
+            filepath = os.path.join(source_dir, "Compute", filename)
+            with open(filepath, 'w') as f:
+                f.write('<svg></svg>')
+        
+        # Mock resource_dir to return our test directory
+        with patch('scripts.azure_updater.resource_dir', return_value=self.resource_dir):
+            stats = azure_updater.map_and_copy_icons(source_dir, self.resource_dir)
+        
+        # Check that files were copied with cleansed names
+        expected_files = [
+            'virtual-machine.svg',  # Azure prefix removed, underscores to dashes
+            'vm-scale-set.svg',     # spaces to dashes
+            'load-balancer-internal.svg',  # underscores to dashes, parentheses removed
+        ]
+        
+        compute_dir = os.path.join(self.resource_dir, "compute")
+        if os.path.exists(compute_dir):
+            actual_files = sorted(os.listdir(compute_dir))
+            self.assertEqual(actual_files, sorted(expected_files),
+                f"Files not cleansed properly. Got: {actual_files}, Expected: {expected_files}")
+        else:
+            self.fail(f"Compute directory not created at {compute_dir}")
+    
+    def test_filename_cleansing_preserves_extension(self):
+        """Test that cleansing preserves file extensions in the update pipeline."""
+        source_dir = os.path.join(self.test_dir, "source")
+        os.makedirs(os.path.join(source_dir, "Storage"), exist_ok=True)
+        
+        # Create test file
+        test_file = 'Azure_Storage_Account.svg'
+        filepath = os.path.join(source_dir, "Storage", test_file)
+        with open(filepath, 'w') as f:
+            f.write('<svg></svg>')
+        
+        with patch('scripts.azure_updater.resource_dir', return_value=self.resource_dir):
+            stats = azure_updater.map_and_copy_icons(source_dir, self.resource_dir)
+        
+        # Check the file exists with correct extension
+        expected_file = 'storage-account.svg'
+        storage_dir = os.path.join(self.resource_dir, "storage")
+        
+        if os.path.exists(storage_dir):
+            files = os.listdir(storage_dir)
+            self.assertIn(expected_file, files)
+            # Verify it's still an SVG file
+            self.assertTrue(expected_file.endswith('.svg'))
+        else:
+            self.fail(f"Storage directory not created at {storage_dir}")
 
 
 class ResourceIntegrationTest(unittest.TestCase):

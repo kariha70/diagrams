@@ -19,6 +19,38 @@ import config as cfg
 from . import resource_dir
 
 
+def cleaner_azure(filename: str) -> str:
+    """
+    Apply Azure filename cleansing rules.
+    Duplicated from resource.py to avoid circular import.
+    """
+    f = filename
+    # Remove .svg extension if present for processing
+    if f.endswith('.svg'):
+        f = f[:-4]
+        add_ext = True
+    else:
+        add_ext = False
+    
+    # Apply cleaning rules
+    f = f.replace("_", "-")
+    f = f.replace("(", "").replace(")", "")
+    f = "-".join(f.split())
+    
+    # Remove prefixes if configured
+    if hasattr(cfg, 'FILE_PREFIXES') and 'azure' in cfg.FILE_PREFIXES:
+        for p in cfg.FILE_PREFIXES["azure"]:
+            if f.startswith(p):
+                f = f[len(p):]
+                break
+    
+    # Return with or without extension
+    if add_ext:
+        return f.lower() + '.svg'
+    else:
+        return f.lower()
+
+
 def show_download_progress(block_num: int, block_size: int, total_size: int) -> None:
     """Show download progress."""
     downloaded = block_num * block_size
@@ -185,15 +217,18 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
             target_cat_dir = os.path.join(target_dir, diag_category)
             os.makedirs(target_cat_dir, exist_ok=True)
             
-            # Copy all SVG files
+            # Copy all SVG files with filename cleansing
             for svg_file in svg_files:
                 source_file = os.path.join(root, svg_file)
-                target_file = os.path.join(target_cat_dir, svg_file)
+                # Apply Azure filename cleansing (remove .svg, clean, add .svg back)
+                name_without_ext = svg_file[:-4] if svg_file.endswith('.svg') else svg_file
+                cleaned_name = cleaner_azure(name_without_ext) + '.svg'
+                target_file = os.path.join(target_cat_dir, cleaned_name)
                 shutil.copy2(source_file, target_file)
                 
                 stats['total_downloaded'] += 1
                 stats['mapped_count'] += 1
-                stats['icon_list'].append(f"{diag_category}/{svg_file}")
+                stats['icon_list'].append(f"{diag_category}/{cleaned_name}")
             
             # Update statistics
             stats['category_mappings'][ms_category] = diag_category
