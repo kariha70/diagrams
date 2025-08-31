@@ -290,7 +290,7 @@ ALIASES = {
         "compute": {
             "ContainerRegistries": "ACR",
             "KubernetesServices": "AKS",
-            "VMScaleSet": "VMSS"
+            "VMScaleSets": "VMSS"
         },
     },
     "gcp": {
@@ -533,7 +533,7 @@ AZURE_CATEGORY_MAP = {
     "Web": "web",
     "Windows Virtual Desktop": "compute",
     "General": "general",
-    
+
     # Lowercase versions (newer icon packages use lowercase)
     "ai + machine learning": "ml",
     "analytics": "analytics",
@@ -564,6 +564,6 @@ AZURE_CATEGORY_MAP = {
     "security": "security",
     "storage": "storage",
     "web": "web",
-    
+
     # Add new categories as Microsoft introduces them
 }

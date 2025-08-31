@@ -38,34 +38,34 @@ def cleaner_aws(f):
 
 def cleaner_azure(f):
     import re
-    
+
     # Remove numeric prefix (NNNNN- pattern)
     # Matches 5 or more digits followed by hyphen(s)
     f = re.sub(r'^\d{5,}--?', '', f)
-    
+
     # Remove "icon-service-" pattern
     f = f.replace('icon-service-', '')
-    
+
     # Apply standard cleaning rules
     f = f.replace("_", "-")
     f = f.replace("(", "").replace(")", "")
     f = f.replace("+", "-")  # Handle plus signs
     f = f.replace("&", "and")  # Handle ampersands
     f = "-".join(f.split())  # Replace spaces with hyphens
-    
+
     # Clean up multiple consecutive hyphens
     while "--" in f:
         f = f.replace("--", "-")
-    
+
     # Remove leading/trailing hyphens
     f = f.strip("-")
-    
+
     # Remove Azure prefixes if configured (case-insensitive)
     for p in cfg.FILE_PREFIXES["azure"]:
         if f.lower().startswith(p.lower()):
             f = f[len(p):]
             break
-    
+
     return f.lower()
 
 
@@ -215,30 +215,30 @@ def svg2png_sharp(pvd: str) -> None:
     """Convert SVG to PNG using sharp (Node.js) converter for better performance."""
     try:
         from .svg_converter import SharpConverter, has_sharp_converter
-        
+
         if not has_sharp_converter():
             print("Sharp converter not available, falling back to inkscape")
             return svg2png_inkscape(pvd)
-        
+
         converter = SharpConverter(
             concurrency=cfg.SHARP_CONCURRENCY,
             quality=cfg.SHARP_QUALITY,
             size=cfg.SHARP_SIZE,
             verbose=True
         )
-        
+
         input_dir = resource_dir(pvd)
         output_dir = resource_dir(pvd)
-        
+
         print(f"Converting SVGs using sharp converter (concurrency: {cfg.SHARP_CONCURRENCY})")
         stats = converter.convert_directory(
             input_dir,
             output_dir,
             preserve_structure=True
         )
-        
+
         print(f"Conversion complete: {stats['processed']} processed, {stats['failed']} failed")
-        
+
         # Remove original SVG files after successful conversion
         if stats['processed'] > 0:
             for root, _, files in os.walk(resource_dir(pvd)):
@@ -249,7 +249,7 @@ def svg2png_sharp(pvd: str) -> None:
                     png_path = svg_path.replace('.svg', '.png')
                     if os.path.exists(png_path):
                         os.remove(svg_path)
-                        
+
     except ImportError:
         print("Sharp converter module not found, falling back to inkscape")
         return svg2png_inkscape(pvd)
@@ -273,14 +273,14 @@ def svg2png_inkscape(pvd: str) -> None:
 
 def svg2png(pvd: str) -> None:
     """Convert the svg into png - automatically selects the best converter."""
-    
+
     # Check environment variable first (set by autogen.sh)
     converter = os.environ.get('DIAGRAMS_SVG_CONVERTER', None)
-    
+
     # If not set, check configured converter preference
     if not converter:
         converter = getattr(cfg, 'SVG_CONVERTER', 'auto')
-    
+
     if converter == "sharp":
         return svg2png_sharp(pvd)
     elif converter == "imagemagick":
@@ -318,12 +318,7 @@ def svg2png2(pvd: str) -> None:
 
 # Import Azure updater functions
 try:
-    from .azure_updater import (
-        update_icons,
-        backup_icons,
-        rollback_icons,
-        check_icon_updates
-    )
+    from .azure_updater import backup_icons, check_icon_updates, rollback_icons, update_icons
     icon_commands = {
         "update_icons": update_icons,
         "backup_icons": backup_icons,

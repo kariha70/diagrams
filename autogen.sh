@@ -9,11 +9,11 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         --update-azure) UPDATE_AZURE=true ;;
         --use-sharp) USE_SHARP=true ;;
-        --help) 
+        --help)
             echo "Usage: $0 [--update-azure] [--use-sharp]"
             echo "  --update-azure: Update Azure icons from Microsoft before processing"
             echo "  --use-sharp: Use fast sharp converter for SVG to PNG conversion (requires Node.js)"
-            exit 0 
+            exit 0
             ;;
         *) echo "Unknown parameter: $1"; exit 1 ;;
     esac
