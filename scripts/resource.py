@@ -37,13 +37,35 @@ def cleaner_aws(f):
 
 
 def cleaner_azure(f):
+    import re
+    
+    # Remove numeric prefix (NNNNN- pattern)
+    # Matches 5 or more digits followed by hyphen(s)
+    f = re.sub(r'^\d{5,}--?', '', f)
+    
+    # Remove "icon-service-" pattern
+    f = f.replace('icon-service-', '')
+    
+    # Apply standard cleaning rules
     f = f.replace("_", "-")
     f = f.replace("(", "").replace(")", "")
-    f = "-".join(f.split())
+    f = f.replace("+", "-")  # Handle plus signs
+    f = f.replace("&", "and")  # Handle ampersands
+    f = "-".join(f.split())  # Replace spaces with hyphens
+    
+    # Clean up multiple consecutive hyphens
+    while "--" in f:
+        f = f.replace("--", "-")
+    
+    # Remove leading/trailing hyphens
+    f = f.strip("-")
+    
+    # Remove Azure prefixes if configured (case-insensitive)
     for p in cfg.FILE_PREFIXES["azure"]:
-        if f.startswith(p):
+        if f.lower().startswith(p.lower()):
             f = f[len(p):]
             break
+    
     return f.lower()
 
 

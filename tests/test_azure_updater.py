@@ -335,7 +335,7 @@ class AzureUpdaterTest(unittest.TestCase):
             ('UPPERCASE', 'uppercase'),
             ('MixedCase', 'mixedcase'),
             ('with_underscore', 'with-underscore'),
-            ('multiple___underscores', 'multiple---underscores'),
+            ('multiple___underscores', 'multiple-underscores'),  # Multiple underscores become single hyphen
             ('with spaces', 'with-spaces'),
             ('multiple  spaces', 'multiple-spaces'),
             ('with(parentheses)', 'withparentheses'),
@@ -395,17 +395,98 @@ class AzureUpdaterTest(unittest.TestCase):
                 self.assertEqual(result, expected,
                     f"Failed for '{input_name}': expected '{expected}', got '{result}'")
     
+    def test_filename_cleansing_numeric_prefixes(self):
+        """Test removal of numeric prefixes from Azure icons."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # Numeric prefix patterns
+            ('00009-icon-service-log-analytics-workspaces', 'log-analytics-workspaces'),
+            ('10126-icon-service-data-factories', 'data-factories'),
+            ('00606-icon-service-azure-synapse-analytics', 'synapse-analytics'),
+            ('02409-icon-service-metrics-advisor', 'metrics-advisor'),
+            ('030777508--icon-service-service-group-relationships', 'service-group-relationships'),
+            # Without icon-service
+            ('12345-some-service', 'some-service'),
+            ('00001-test', 'test'),
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_icon_service_removal(self):
+        """Test removal of 'icon-service-' pattern."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # icon-service patterns
+            ('icon-service-virtual-machines', 'virtual-machines'),
+            ('icon-service-storage-accounts', 'storage-accounts'),
+            ('some-icon-service-name', 'some-name'),  # icon-service is removed
+            ('test-icon-service-middle', 'test-middle'),  # icon-service is removed
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_special_characters(self):
+        """Test handling of special characters in filenames."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # Special character handling
+            ('web-app-+-database', 'web-app-database'),  # Plus sign
+            ('backup-&-restore', 'backup-and-restore'),  # Ampersand
+            ('service--with--multiple--hyphens', 'service-with-multiple-hyphens'),  # Multiple hyphens
+            ('-leading-hyphen', 'leading-hyphen'),  # Leading hyphen
+            ('trailing-hyphen-', 'trailing-hyphen'),  # Trailing hyphen
+            ('--both--', 'both'),  # Leading and trailing
+            ('test + symbol & more', 'test-symbol-and-more'),  # Mixed special chars
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
+    def test_filename_cleansing_real_world_examples(self):
+        """Test with real-world Azure icon filenames."""
+        from scripts.resource import cleaner_azure
+        
+        test_cases = [
+            # Real examples from Azure icons
+            ('00009-icon-service-log-analytics-workspaces', 'log-analytics-workspaces'),
+            ('10045-icon-service-notification-hubs', 'notification-hubs'),
+            ('02515-icon-service-web-app-+-database', 'web-app-database'),
+            ('03413-icon-service-defender-distributer-control-system', 'defender-distributer-control-system'),
+            ('10181-icon-service-time-series-insights-environments', 'time-series-insights-environments'),
+            ('02827-icon-service-azure-database-postgresql-server-group', 'database-postgresql-server-group'),
+        ]
+        
+        for input_name, expected in test_cases:
+            with self.subTest(input=input_name):
+                result = cleaner_azure(input_name)
+                self.assertEqual(result, expected,
+                    f"Failed for '{input_name}': expected '{expected}', got '{result}'")
+    
     def test_filename_cleansing_in_update_pipeline(self):
         """Test that filename cleansing is applied during icon update."""
         # Create test source directory with icons
         source_dir = os.path.join(self.test_dir, "source")
         os.makedirs(os.path.join(source_dir, "Compute"), exist_ok=True)
         
-        # Create test SVG files with names that need cleansing
+        # Create test SVG files with names that need cleansing (new patterns)
         test_files = [
-            'Azure_Virtual_Machine.svg',
-            'VM Scale Set.svg',
-            'Load_Balancer_(Internal).svg',
+            '00195-icon-service-maintenance-configuration.svg',
+            '00328-icon-service-host-pools.svg',
+            '02409-icon-service-metrics-advisor.svg',
         ]
         
         for filename in test_files:
@@ -419,9 +500,9 @@ class AzureUpdaterTest(unittest.TestCase):
         
         # Check that files were copied with cleansed names
         expected_files = [
-            'virtual-machine.svg',  # Azure prefix removed, underscores to dashes
-            'vm-scale-set.svg',     # spaces to dashes
-            'load-balancer-internal.svg',  # underscores to dashes, parentheses removed
+            'maintenance-configuration.svg',  # Numeric prefix and icon-service removed
+            'host-pools.svg',                 # Numeric prefix and icon-service removed
+            'metrics-advisor.svg',             # Numeric prefix and icon-service removed
         ]
         
         compute_dir = os.path.join(self.resource_dir, "compute")

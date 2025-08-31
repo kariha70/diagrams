@@ -23,7 +23,10 @@ def cleaner_azure(filename: str) -> str:
     """
     Apply Azure filename cleansing rules.
     Duplicated from resource.py to avoid circular import.
+    Enhanced to handle new Azure icon naming patterns.
     """
+    import re
+    
     f = filename
     # Remove .svg extension if present for processing
     if f.endswith('.svg'):
@@ -32,15 +35,31 @@ def cleaner_azure(filename: str) -> str:
     else:
         add_ext = False
     
-    # Apply cleaning rules
+    # Remove numeric prefix (NNNNN- pattern)
+    # Matches 5 or more digits followed by hyphen(s)
+    f = re.sub(r'^\d{5,}--?', '', f)
+    
+    # Remove "icon-service-" pattern
+    f = f.replace('icon-service-', '')
+    
+    # Apply standard cleaning rules
     f = f.replace("_", "-")
     f = f.replace("(", "").replace(")", "")
-    f = "-".join(f.split())
+    f = f.replace("+", "-")  # Handle plus signs
+    f = f.replace("&", "and")  # Handle ampersands
+    f = "-".join(f.split())  # Replace spaces with hyphens
     
-    # Remove prefixes if configured
+    # Clean up multiple consecutive hyphens
+    while "--" in f:
+        f = f.replace("--", "-")
+    
+    # Remove leading/trailing hyphens
+    f = f.strip("-")
+    
+    # Remove Azure prefixes if configured (case-insensitive)
     if hasattr(cfg, 'FILE_PREFIXES') and 'azure' in cfg.FILE_PREFIXES:
         for p in cfg.FILE_PREFIXES["azure"]:
-            if f.startswith(p):
+            if f.lower().startswith(p.lower()):
                 f = f[len(p):]
                 break
     
