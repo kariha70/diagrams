@@ -8,8 +8,16 @@ class _Integration(_Azure):
     _icon_dir = "resources/azure/integration"
 
 
+class APIConnections(_Integration):
+    _icon = "api-connections.png"
+
+
 class APIForFhir(_Integration):
     _icon = "api-for-fhir.png"
+
+
+class APIManagementServices(_Integration):
+    _icon = "api-management-services.png"
 
 
 class APIManagement(_Integration):
@@ -20,8 +28,24 @@ class AppConfiguration(_Integration):
     _icon = "app-configuration.png"
 
 
+class BusinessProcessTracking(_Integration):
+    _icon = "business-process-tracking.png"
+
+
+class Capacity(_Integration):
+    _icon = "capacity.png"
+
+
 class DataCatalog(_Integration):
     _icon = "data-catalog.png"
+
+
+class DataFactories(_Integration):
+    _icon = "data-factories.png"
+
+
+class DataboxGateway(_Integration):
+    _icon = "databox-gateway.png"
 
 
 class EventGridDomains(_Integration):
@@ -36,8 +60,16 @@ class EventGridTopics(_Integration):
     _icon = "event-grid-topics.png"
 
 
+class InfrastructureBackup(_Integration):
+    _icon = "infrastructure-backup.png"
+
+
 class IntegrationAccounts(_Integration):
     _icon = "integration-accounts.png"
+
+
+class IntegrationEnvironments(_Integration):
+    _icon = "integration-environments.png"
 
 
 class IntegrationServiceEnvironments(_Integration):
@@ -52,8 +84,60 @@ class LogicApps(_Integration):
     _icon = "logic-apps.png"
 
 
+class MonitorPipeline(_Integration):
+    _icon = "monitor-pipeline.png"
+
+
+class MultiTenancy(_Integration):
+    _icon = "multi-tenancy.png"
+
+
+class Offers(_Integration):
+    _icon = "offers.png"
+
+
+class Operator5GCore(_Integration):
+    _icon = "operator-5g-core.png"
+
+
+class OperatorInsights(_Integration):
+    _icon = "operator-insights.png"
+
+
+class OperatorNexus(_Integration):
+    _icon = "operator-nexus.png"
+
+
+class OperatorServiceManager(_Integration):
+    _icon = "operator-service-manager.png"
+
+
+class PartnerNamespace(_Integration):
+    _icon = "partner-namespace.png"
+
+
+class PartnerRegistration(_Integration):
+    _icon = "partner-registration.png"
+
+
 class PartnerTopic(_Integration):
     _icon = "partner-topic.png"
+
+
+class Plans(_Integration):
+    _icon = "plans.png"
+
+
+class PowerPlatform(_Integration):
+    _icon = "power-platform.png"
+
+
+class ProgrammableConnectivity(_Integration):
+    _icon = "programmable-connectivity.png"
+
+
+class Relays(_Integration):
+    _icon = "relays.png"
 
 
 class SendgridAccounts(_Integration):
@@ -76,12 +160,32 @@ class SoftwareAsAService(_Integration):
     _icon = "software-as-a-service.png"
 
 
+class SQLDataWarehouses(_Integration):
+    _icon = "sql-data-warehouses.png"
+
+
+class SQLServerStretchDatabases(_Integration):
+    _icon = "sql-server-stretch-databases.png"
+
+
+class StackEdge(_Integration):
+    _icon = "stack-edge.png"
+
+
 class StorsimpleDeviceManagers(_Integration):
     _icon = "storsimple-device-managers.png"
 
 
 class SystemTopic(_Integration):
     _icon = "system-topic.png"
+
+
+class Updates(_Integration):
+    _icon = "updates.png"
+
+
+class UserSubscriptions(_Integration):
+    _icon = "user-subscriptions.png"
 
 
 # Aliases

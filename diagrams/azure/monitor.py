@@ -8,12 +8,92 @@ class _Monitor(_Azure):
     _icon_dir = "resources/azure/monitor"
 
 
+class ActivityLog(_Monitor):
+    _icon = "activity-log.png"
+
+
+class Advisor(_Monitor):
+    _icon = "advisor.png"
+
+
+class Alerts(_Monitor):
+    _icon = "alerts.png"
+
+
+class ApplicationInsights(_Monitor):
+    _icon = "application-insights.png"
+
+
+class ArcMachines(_Monitor):
+    _icon = "arc-machines.png"
+
+
+class Arc(_Monitor):
+    _icon = "arc.png"
+
+
+class AutoScale(_Monitor):
+    _icon = "auto-scale.png"
+
+
+class AutomationAccounts(_Monitor):
+    _icon = "automation-accounts.png"
+
+
+class Blueprints(_Monitor):
+    _icon = "blueprints.png"
+
+
 class ChangeAnalysis(_Monitor):
     _icon = "change-analysis.png"
 
 
+class Compliance(_Monitor):
+    _icon = "compliance.png"
+
+
+class CostManagementAndBilling(_Monitor):
+    _icon = "cost-management-and-billing.png"
+
+
+class CustomerLockboxForMicrosoftAzure(_Monitor):
+    _icon = "customer-lockbox-for-microsoft-azure.png"
+
+
+class DiagnosticsSettings(_Monitor):
+    _icon = "diagnostics-settings.png"
+
+
+class Education(_Monitor):
+    _icon = "education.png"
+
+
+class IntuneTrends(_Monitor):
+    _icon = "intune-trends.png"
+
+
+class Lighthouse(_Monitor):
+    _icon = "lighthouse.png"
+
+
+class LogAnalyticsWorkspaces(_Monitor):
+    _icon = "log-analytics-workspaces.png"
+
+
 class Logs(_Monitor):
     _icon = "logs.png"
+
+
+class Machinesazurearc(_Monitor):
+    _icon = "machinesazurearc.png"
+
+
+class ManagedApplicationsCenter(_Monitor):
+    _icon = "managed-applications-center.png"
+
+
+class ManagedDesktop(_Monitor):
+    _icon = "managed-desktop.png"
 
 
 class Metrics(_Monitor):
@@ -22,6 +102,66 @@ class Metrics(_Monitor):
 
 class Monitor(_Monitor):
     _icon = "monitor.png"
+
+
+class MonitorsForSAPSolutions(_Monitor):
+    _icon = "monitors-for-sap-solutions.png"
+
+
+class MyCustomers(_Monitor):
+    _icon = "my-customers.png"
+
+
+class NetworkWatcher(_Monitor):
+    _icon = "network-watcher.png"
+
+
+class OperationLogClassic(_Monitor):
+    _icon = "operation-log-classic.png"
+
+
+class Policy(_Monitor):
+    _icon = "policy.png"
+
+
+class RecoveryServicesVaults(_Monitor):
+    _icon = "recovery-services-vaults.png"
+
+
+class ResourceGraphExplorer(_Monitor):
+    _icon = "resource-graph-explorer.png"
+
+
+class ResourcesProvider(_Monitor):
+    _icon = "resources-provider.png"
+
+
+class SchedulerJobCollections(_Monitor):
+    _icon = "scheduler-job-collections.png"
+
+
+class ServiceCatalogMad(_Monitor):
+    _icon = "service-catalog-mad.png"
+
+
+class ServiceProviders(_Monitor):
+    _icon = "service-providers.png"
+
+
+class Solutions(_Monitor):
+    _icon = "solutions.png"
+
+
+class UniversalPrint(_Monitor):
+    _icon = "universal-print.png"
+
+
+class UserPrivacy(_Monitor):
+    _icon = "user-privacy.png"
+
+
+class Workbooks(_Monitor):
+    _icon = "workbooks.png"
 
 
 # Aliases

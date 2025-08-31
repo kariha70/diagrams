@@ -20,12 +20,52 @@ class Defender(_Security):
     _icon = "defender.png"
 
 
+class Detonation(_Security):
+    _icon = "detonation.png"
+
+
+class EntraIdentityRiskySignins(_Security):
+    _icon = "entra-identity-risky-signins.png"
+
+
+class EntraIdentityRiskyUsers(_Security):
+    _icon = "entra-identity-risky-users.png"
+
+
 class ExtendedSecurityUpdates(_Security):
     _icon = "extended-security-updates.png"
 
 
+class Extendedsecurityupdates(_Security):
+    _icon = "extendedsecurityupdates.png"
+
+
+class IdentitySecureScore(_Security):
+    _icon = "identity-secure-score.png"
+
+
+class InformationProtection(_Security):
+    _icon = "information-protection.png"
+
+
 class KeyVaults(_Security):
     _icon = "key-vaults.png"
+
+
+class MicrosoftDefenderEasm(_Security):
+    _icon = "microsoft-defender-easm.png"
+
+
+class MicrosoftDefenderForCloud(_Security):
+    _icon = "microsoft-defender-for-cloud.png"
+
+
+class MicrosoftDefenderForIot(_Security):
+    _icon = "microsoft-defender-for-iot.png"
+
+
+class MultifactorAuthentication(_Security):
+    _icon = "multifactor-authentication.png"
 
 
 class SecurityCenter(_Security):
@@ -34,6 +74,10 @@ class SecurityCenter(_Security):
 
 class Sentinel(_Security):
     _icon = "sentinel.png"
+
+
+class UserSettings(_Security):
+    _icon = "user-settings.png"
 
 
 # Aliases

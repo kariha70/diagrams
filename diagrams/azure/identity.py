@@ -36,16 +36,124 @@ class ADPrivilegedIdentityManagement(_Identity):
     _icon = "ad-privileged-identity-management.png"
 
 
+class AdministrativeUnits(_Identity):
+    _icon = "administrative-units.png"
+
+
+class APIProxy(_Identity):
+    _icon = "api-proxy.png"
+
+
 class AppRegistrations(_Identity):
     _icon = "app-registrations.png"
+
+
+class ClientApps(_Identity):
+    _icon = "client-apps.png"
 
 
 class ConditionalAccess(_Identity):
     _icon = "conditional-access.png"
 
 
+class DeviceCompliance(_Identity):
+    _icon = "device-compliance.png"
+
+
+class DeviceConfiguration(_Identity):
+    _icon = "device-configuration.png"
+
+
+class DeviceEnrollment(_Identity):
+    _icon = "device-enrollment.png"
+
+
+class DeviceSecurityApple(_Identity):
+    _icon = "device-security-apple.png"
+
+
+class DeviceSecurityGoogle(_Identity):
+    _icon = "device-security-google.png"
+
+
+class DeviceSecurityWindows(_Identity):
+    _icon = "device-security-windows.png"
+
+
+class Devices(_Identity):
+    _icon = "devices.png"
+
+
+class Ebooks(_Identity):
+    _icon = "ebooks.png"
+
+
 class EnterpriseApplications(_Identity):
     _icon = "enterprise-applications.png"
+
+
+class EntraConnectHealth(_Identity):
+    _icon = "entra-connect-health.png"
+
+
+class EntraConnectSync(_Identity):
+    _icon = "entra-connect-sync.png"
+
+
+class EntraConnect(_Identity):
+    _icon = "entra-connect.png"
+
+
+class EntraDomainServices(_Identity):
+    _icon = "entra-domain-services.png"
+
+
+class EntraGlobalSecureAccess(_Identity):
+    _icon = "entra-global-secure-access.png"
+
+
+class EntraIDProtection(_Identity):
+    _icon = "entra-id-protection.png"
+
+
+class EntraIdentityCustomRoles(_Identity):
+    _icon = "entra-identity-custom-roles.png"
+
+
+class EntraIdentityLicenses(_Identity):
+    _icon = "entra-identity-licenses.png"
+
+
+class EntraIdentityRolesAndAdministrators(_Identity):
+    _icon = "entra-identity-roles-and-administrators.png"
+
+
+class EntraInternetAccess(_Identity):
+    _icon = "entra-internet-access.png"
+
+
+class EntraManagedIdentities(_Identity):
+    _icon = "entra-managed-identities.png"
+
+
+class EntraPrivateAccess(_Identity):
+    _icon = "entra-private-access.png"
+
+
+class EntraPrivlegedIdentityManagement(_Identity):
+    _icon = "entra-privleged-identity-management.png"
+
+
+class EntraVerifiedID(_Identity):
+    _icon = "entra-verified-id.png"
+
+
+class ExchangeAccess(_Identity):
+    _icon = "exchange-access.png"
+
+
+class ExternalIdentities(_Identity):
+    _icon = "external-identities.png"
 
 
 class Groups(_Identity):
@@ -60,12 +168,64 @@ class InformationProtection(_Identity):
     _icon = "information-protection.png"
 
 
+class IntuneAppProtection(_Identity):
+    _icon = "intune-app-protection.png"
+
+
+class IntuneForEducation(_Identity):
+    _icon = "intune-for-education.png"
+
+
+class Intune(_Identity):
+    _icon = "intune.png"
+
+
 class ManagedIdentities(_Identity):
     _icon = "managed-identities.png"
 
 
+class Mindaro(_Identity):
+    _icon = "mindaro.png"
+
+
+class MultiFactorAuthentication(_Identity):
+    _icon = "multi-factor-authentication.png"
+
+
+class SecurityBaselines(_Identity):
+    _icon = "security-baselines.png"
+
+
+class Security(_Identity):
+    _icon = "security.png"
+
+
+class SoftwareUpdates(_Identity):
+    _icon = "software-updates.png"
+
+
+class TenantProperties(_Identity):
+    _icon = "tenant-properties.png"
+
+
+class TenantStatus(_Identity):
+    _icon = "tenant-status.png"
+
+
+class UserSettings(_Identity):
+    _icon = "user-settings.png"
+
+
 class Users(_Identity):
     _icon = "users.png"
+
+
+class VerifiableCredentials(_Identity):
+    _icon = "verifiable-credentials.png"
+
+
+class VerificationAsAService(_Identity):
+    _icon = "verification-as-a-service.png"
 
 
 # Aliases

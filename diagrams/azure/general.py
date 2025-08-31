@@ -8,44 +8,824 @@ class _General(_Azure):
     _icon_dir = "resources/azure/general"
 
 
+class A(_General):
+    _icon = "a.png"
+
+
+class AIAtEdge(_General):
+    _icon = "ai-at-edge.png"
+
+
+class AksIstio(_General):
+    _icon = "aks-istio.png"
+
+
+class AllResources(_General):
+    _icon = "all-resources.png"
+
+
 class Allresources(_General):
     _icon = "allresources.png"
+
+
+class AppComplianceAutomation(_General):
+    _icon = "app-compliance-automation.png"
+
+
+class AppRegistrations(_General):
+    _icon = "app-registrations.png"
+
+
+class Applens(_General):
+    _icon = "applens.png"
+
+
+class Aquila(_General):
+    _icon = "aquila.png"
+
+
+class ArcDataServices(_General):
+    _icon = "arc-data-services.png"
+
+
+class ArcKubernetes(_General):
+    _icon = "arc-kubernetes.png"
+
+
+class ArcPostgresql(_General):
+    _icon = "arc-postgresql.png"
+
+
+class ArcSQLManagedInstance(_General):
+    _icon = "arc-sql-managed-instance.png"
+
+
+class ArcSQLServer(_General):
+    _icon = "arc-sql-server.png"
+
+
+class AvsVM(_General):
+    _icon = "avs-vm.png"
+
+
+class Azureattestation(_General):
+    _icon = "azureattestation.png"
 
 
 class Azurehome(_General):
     _icon = "azurehome.png"
 
 
+class Azurite(_General):
+    _icon = "azurite.png"
+
+
+class Backlog(_General):
+    _icon = "backlog.png"
+
+
+class BackupCenter(_General):
+    _icon = "backup-center.png"
+
+
+class BackupVault(_General):
+    _icon = "backup-vault.png"
+
+
+class BareMetalInfrastructure(_General):
+    _icon = "bare-metal-infrastructure.png"
+
+
+class BizTalk(_General):
+    _icon = "biz-talk.png"
+
+
+class BlobBlock(_General):
+    _icon = "blob-block.png"
+
+
+class BlobPage(_General):
+    _icon = "blob-page.png"
+
+
+class Branch(_General):
+    _icon = "branch.png"
+
+
+class Breeze(_General):
+    _icon = "breeze.png"
+
+
+class Browser(_General):
+    _icon = "browser.png"
+
+
+class Bug(_General):
+    _icon = "bug.png"
+
+
+class Builds(_General):
+    _icon = "builds.png"
+
+
+class Cache(_General):
+    _icon = "cache.png"
+
+
+class CapacityReservationGroups(_General):
+    _icon = "capacity-reservation-groups.png"
+
+
+class CenterForSAP(_General):
+    _icon = "center-for-sap.png"
+
+
+class CentralServiceInstanceForSAP(_General):
+    _icon = "central-service-instance-for-sap.png"
+
+
+class Ceres(_General):
+    _icon = "ceres.png"
+
+
+class ChaosStudio(_General):
+    _icon = "chaos-studio.png"
+
+
+class CloudServicesExtendedSupport(_General):
+    _icon = "cloud-services-extended-support.png"
+
+
+class CloudShell(_General):
+    _icon = "cloud-shell.png"
+
+
+class Code(_General):
+    _icon = "code.png"
+
+
+class CollaborativeService(_General):
+    _icon = "collaborative-service.png"
+
+
+class Commit(_General):
+    _icon = "commit.png"
+
+
+class CommunicationServices(_General):
+    _icon = "communication-services.png"
+
+
+class CommunityImages(_General):
+    _icon = "community-images.png"
+
+
+class ComplianceCenter(_General):
+    _icon = "compliance-center.png"
+
+
+class ComputeGalleries(_General):
+    _icon = "compute-galleries.png"
+
+
+class ConfidentialLedgers(_General):
+    _icon = "confidential-ledgers.png"
+
+
+class ConnectedVehiclePlatform(_General):
+    _icon = "connected-vehicle-platform.png"
+
+
+class ConsumptionCommitment(_General):
+    _icon = "consumption-commitment.png"
+
+
+class ContainerAppsEnvironments(_General):
+    _icon = "container-apps-environments.png"
+
+
+class ControlsHorizontal(_General):
+    _icon = "controls-horizontal.png"
+
+
+class Controls(_General):
+    _icon = "controls.png"
+
+
+class CostAlerts(_General):
+    _icon = "cost-alerts.png"
+
+
+class CostAnalysis(_General):
+    _icon = "cost-analysis.png"
+
+
+class CostBudgets(_General):
+    _icon = "cost-budgets.png"
+
+
+class CostExport(_General):
+    _icon = "cost-export.png"
+
+
+class CostManagementAndBilling(_General):
+    _icon = "cost-management-and-billing.png"
+
+
+class CostManagement(_General):
+    _icon = "cost-management.png"
+
+
+class Counter(_General):
+    _icon = "counter.png"
+
+
+class Cubes(_General):
+    _icon = "cubes.png"
+
+
+class CustomIpPrefix(_General):
+    _icon = "custom-ip-prefix.png"
+
+
+class DashboardHub(_General):
+    _icon = "dashboard-hub.png"
+
+
+class Dashboard(_General):
+    _icon = "dashboard.png"
+
+
+class DataCollectionRules(_General):
+    _icon = "data-collection-rules.png"
+
+
+class DataVirtualization(_General):
+    _icon = "data-virtualization.png"
+
+
+class DatabaseInstanceForSAP(_General):
+    _icon = "database-instance-for-sap.png"
+
+
+class DedicatedHsm(_General):
+    _icon = "dedicated-hsm.png"
+
+
+class DefenderCmLocalManager(_General):
+    _icon = "defender-cm-local-manager.png"
+
+
+class DefenderDcsController(_General):
+    _icon = "defender-dcs-controller.png"
+
+
+class DefenderDistributerControlSystem(_General):
+    _icon = "defender-distributer-control-system.png"
+
+
+class DefenderEngineeringStation(_General):
+    _icon = "defender-engineering-station.png"
+
+
+class DefenderExternalManagement(_General):
+    _icon = "defender-external-management.png"
+
+
+class DefenderFreezerMonitor(_General):
+    _icon = "defender-freezer-monitor.png"
+
+
+class DefenderHistorian(_General):
+    _icon = "defender-historian.png"
+
+
+class DefenderHmi(_General):
+    _icon = "defender-hmi.png"
+
+
+class DefenderIndustrialPackagingSystem(_General):
+    _icon = "defender-industrial-packaging-system.png"
+
+
+class DefenderIndustrialPrinter(_General):
+    _icon = "defender-industrial-printer.png"
+
+
+class DefenderIndustrialRobot(_General):
+    _icon = "defender-industrial-robot.png"
+
+
+class DefenderIndustrialScaleSystem(_General):
+    _icon = "defender-industrial-scale-system.png"
+
+
+class DefenderMarquee(_General):
+    _icon = "defender-marquee.png"
+
+
+class DefenderMeter(_General):
+    _icon = "defender-meter.png"
+
+
+class DefenderPlc(_General):
+    _icon = "defender-plc.png"
+
+
+class DefenderPneumaticDevice(_General):
+    _icon = "defender-pneumatic-device.png"
+
+
+class DefenderProgramableBoard(_General):
+    _icon = "defender-programable-board.png"
+
+
+class DefenderRelay(_General):
+    _icon = "defender-relay.png"
+
+
+class DefenderRobotController(_General):
+    _icon = "defender-robot-controller.png"
+
+
+class DefenderRtu(_General):
+    _icon = "defender-rtu.png"
+
+
+class DefenderSensor(_General):
+    _icon = "defender-sensor.png"
+
+
+class DefenderSlot(_General):
+    _icon = "defender-slot.png"
+
+
+class DefenderWebGuidingSystem(_General):
+    _icon = "defender-web-guiding-system.png"
+
+
+class DeploymentEnvironments(_General):
+    _icon = "deployment-environments.png"
+
+
+class DevConsole(_General):
+    _icon = "dev-console.png"
+
+
+class DevTunnels(_General):
+    _icon = "dev-tunnels.png"
+
+
 class Developertools(_General):
     _icon = "developertools.png"
+
+
+class DeviceUpdateIotHub(_General):
+    _icon = "device-update-iot-hub.png"
+
+
+class DiskPool(_General):
+    _icon = "disk-pool.png"
+
+
+class Download(_General):
+    _icon = "download.png"
+
+
+class EdgeActions(_General):
+    _icon = "edge-actions.png"
+
+
+class EdgeHardwareCenter(_General):
+    _icon = "edge-hardware-center.png"
+
+
+class EdgeManagement(_General):
+    _icon = "edge-management.png"
+
+
+class EdgeStorageAccelerator(_General):
+    _icon = "edge-storage-accelerator.png"
+
+
+class ElasticSan(_General):
+    _icon = "elastic-san.png"
+
+
+class EngageCenterConnect(_General):
+    _icon = "engage-center-connect.png"
+
+
+class EntraIdentityLicenses(_General):
+    _icon = "entra-identity-licenses.png"
+
+
+class Error(_General):
+    _icon = "error.png"
+
+
+class ExchangeOnPremisesAccess(_General):
+    _icon = "exchange-on-premises-access.png"
+
+
+class ExpressRouteTrafficCollector(_General):
+    _icon = "express-route-traffic-collector.png"
+
+
+class ExpressrouteDirect(_General):
+    _icon = "expressroute-direct.png"
+
+
+class Extensions(_General):
+    _icon = "extensions.png"
+
+
+class ExternalIDModified(_General):
+    _icon = "external-id-modified.png"
+
+
+class ExternalID(_General):
+    _icon = "external-id.png"
+
+
+class FeaturePreviews(_General):
+    _icon = "feature-previews.png"
+
+
+class FhirService(_General):
+    _icon = "fhir-service.png"
+
+
+class Fiji(_General):
+    _icon = "fiji.png"
+
+
+class File(_General):
+    _icon = "file.png"
+
+
+class Files(_General):
+    _icon = "files.png"
+
+
+class FolderBlank(_General):
+    _icon = "folder-blank.png"
+
+
+class FolderWebsite(_General):
+    _icon = "folder-website.png"
+
+
+class FrdQa(_General):
+    _icon = "frd-qa.png"
+
+
+class FreeServices(_General):
+    _icon = "free-services.png"
+
+
+class Ftp(_General):
+    _icon = "ftp.png"
+
+
+class Gear(_General):
+    _icon = "gear.png"
+
+
+class GlobeError(_General):
+    _icon = "globe-error.png"
+
+
+class GlobeSuccess(_General):
+    _icon = "globe-success.png"
+
+
+class GlobeWarning(_General):
+    _icon = "globe-warning.png"
+
+
+class Guide(_General):
+    _icon = "guide.png"
+
+
+class HdiAksCluster(_General):
+    _icon = "hdi-aks-cluster.png"
+
+
+class Heart(_General):
+    _icon = "heart.png"
+
+
+class HelpAndSupport(_General):
+    _icon = "help-and-support.png"
 
 
 class Helpsupport(_General):
     _icon = "helpsupport.png"
 
 
+class HpcWorkbenches(_General):
+    _icon = "hpc-workbenches.png"
+
+
+class HybridCenter(_General):
+    _icon = "hybrid-center.png"
+
+
+class HybridConnectivityHub(_General):
+    _icon = "hybrid-connectivity-hub.png"
+
+
+class IcmTroubleshooting(_General):
+    _icon = "icm-troubleshooting.png"
+
+
+class Image(_General):
+    _icon = "image.png"
+
+
 class Information(_General):
     _icon = "information.png"
+
+
+class InputOutput(_General):
+    _icon = "input-output.png"
+
+
+class InstancePools(_General):
+    _icon = "instance-pools.png"
+
+
+class InternetAnalyzerProfiles(_General):
+    _icon = "internet-analyzer-profiles.png"
+
+
+class JourneyHub(_General):
+    _icon = "journey-hub.png"
+
+
+class Keys(_General):
+    _icon = "keys.png"
+
+
+class KubernetesFleetManager(_General):
+    _icon = "kubernetes-fleet-manager.png"
+
+
+class LandingZone(_General):
+    _icon = "landing-zone.png"
+
+
+class LaunchPortal(_General):
+    _icon = "launch-portal.png"
+
+
+class Learn(_General):
+    _icon = "learn.png"
+
+
+class LoadBalancerHub(_General):
+    _icon = "load-balancer-hub.png"
+
+
+class LoadTest(_General):
+    _icon = "load-test.png"
+
+
+class LoadTesting(_General):
+    _icon = "load-testing.png"
+
+
+class LocalNetworkGateways(_General):
+    _icon = "local-network-gateways.png"
+
+
+class Location(_General):
+    _icon = "location.png"
+
+
+class LogAnalyticsQueryPack(_General):
+    _icon = "log-analytics-query-pack.png"
+
+
+class LogStreaming(_General):
+    _icon = "log-streaming.png"
+
+
+class LogicAppsTemplate(_General):
+    _icon = "logic-apps-template.png"
+
+
+class ManagedGrafana(_General):
+    _icon = "managed-grafana.png"
+
+
+class ManagedInstanceApacheCassandra(_General):
+    _icon = "managed-instance-apache-cassandra.png"
+
+
+class ManagedRedis(_General):
+    _icon = "managed-redis.png"
+
+
+class ManagementGroups(_General):
+    _icon = "management-groups.png"
+
+
+class ManagementPortal(_General):
+    _icon = "management-portal.png"
 
 
 class Managementgroups(_General):
     _icon = "managementgroups.png"
 
 
+class MarketplaceManagement(_General):
+    _icon = "marketplace-management.png"
+
+
 class Marketplace(_General):
     _icon = "marketplace.png"
+
+
+class MediaFile(_General):
+    _icon = "media-file.png"
+
+
+class Media(_General):
+    _icon = "media.png"
+
+
+class MedtechService(_General):
+    _icon = "medtech-service.png"
+
+
+class MicrosoftDevBox(_General):
+    _icon = "microsoft-dev-box.png"
+
+
+class MissionLandingZone(_General):
+    _icon = "mission-landing-zone.png"
+
+
+class MobileEngagement(_General):
+    _icon = "mobile-engagement.png"
+
+
+class MobileNetworks(_General):
+    _icon = "mobile-networks.png"
+
+
+class Mobile(_General):
+    _icon = "mobile.png"
+
+
+class ModularDataCenter(_General):
+    _icon = "modular-data-center.png"
+
+
+class Module(_General):
+    _icon = "module.png"
+
+
+class MonitorDashboard(_General):
+    _icon = "monitor-dashboard.png"
+
+
+class MonitorHealthModels(_General):
+    _icon = "monitor-health-models.png"
+
+
+class NetworkFoundationHub(_General):
+    _icon = "network-foundation-hub.png"
+
+
+class NetworkFunctionManagerFunctions(_General):
+    _icon = "network-function-manager-functions.png"
+
+
+class NetworkFunctionManager(_General):
+    _icon = "network-function-manager.png"
+
+
+class NetworkManagers(_General):
+    _icon = "network-managers.png"
+
+
+class NetworkSecurityHub(_General):
+    _icon = "network-security-hub.png"
+
+
+class NetworkSecurityPerimeters(_General):
+    _icon = "network-security-perimeters.png"
+
+
+class OpenSupplyChainPlatform(_General):
+    _icon = "open-supply-chain-platform.png"
+
+
+class Orbital(_General):
+    _icon = "orbital.png"
+
+
+class Osconfig(_General):
+    _icon = "osconfig.png"
+
+
+class PeeringService(_General):
+    _icon = "peering-service.png"
+
+
+class Peerings(_General):
+    _icon = "peerings.png"
+
+
+class PlanetaryComputerPro(_General):
+    _icon = "planetary-computer-pro.png"
+
+
+class PowerUp(_General):
+    _icon = "power-up.png"
+
+
+class Power(_General):
+    _icon = "power.png"
+
+
+class Powershell(_General):
+    _icon = "powershell.png"
+
+
+class PreviewFeatures(_General):
+    _icon = "preview-features.png"
+
+
+class PrivateEndpoints(_General):
+    _icon = "private-endpoints.png"
+
+
+class ProcessExplorer(_General):
+    _icon = "process-explorer.png"
+
+
+class ProductionReadyDatabase(_General):
+    _icon = "production-ready-database.png"
+
+
+class Promethus(_General):
+    _icon = "promethus.png"
+
+
+class QuickstartCenter(_General):
+    _icon = "quickstart-center.png"
 
 
 class Quickstartcenter(_General):
     _icon = "quickstartcenter.png"
 
 
+class Quotas(_General):
+    _icon = "quotas.png"
+
+
 class Recent(_General):
     _icon = "recent.png"
 
 
+class RegionManagement(_General):
+    _icon = "region-management.png"
+
+
 class Reservations(_General):
     _icon = "reservations.png"
+
+
+class ReservedCapacity(_General):
+    _icon = "reserved-capacity.png"
+
+
+class ResourceExplorer(_General):
+    _icon = "resource-explorer.png"
+
+
+class ResourceGroupList(_General):
+    _icon = "resource-group-list.png"
+
+
+class ResourceGroups(_General):
+    _icon = "resource-groups.png"
+
+
+class ResourceGuard(_General):
+    _icon = "resource-guard.png"
+
+
+class ResourceLinked(_General):
+    _icon = "resource-linked.png"
+
+
+class ResourceMover(_General):
+    _icon = "resource-mover.png"
 
 
 class Resource(_General):
@@ -56,6 +836,46 @@ class Resourcegroups(_General):
     _icon = "resourcegroups.png"
 
 
+class Rtos(_General):
+    _icon = "rtos.png"
+
+
+class SavingsPlans(_General):
+    _icon = "savings-plans.png"
+
+
+class Scheduler(_General):
+    _icon = "scheduler.png"
+
+
+class ScvmmManagementServers(_General):
+    _icon = "scvmm-management-servers.png"
+
+
+class SearchGrid(_General):
+    _icon = "search-grid.png"
+
+
+class Search(_General):
+    _icon = "search.png"
+
+
+class ServerFarm(_General):
+    _icon = "server-farm.png"
+
+
+class ServiceGroupRelationships(_General):
+    _icon = "service-group-relationships.png"
+
+
+class ServiceGroups(_General):
+    _icon = "service-groups.png"
+
+
+class ServiceHealth(_General):
+    _icon = "service-health.png"
+
+
 class Servicehealth(_General):
     _icon = "servicehealth.png"
 
@@ -64,8 +884,56 @@ class Shareddashboard(_General):
     _icon = "shareddashboard.png"
 
 
+class SonicDash(_General):
+    _icon = "sonic-dash.png"
+
+
+class Sphere(_General):
+    _icon = "sphere.png"
+
+
+class SQLDatabaseFleetManager(_General):
+    _icon = "sql-database-fleet-manager.png"
+
+
+class Ssd(_General):
+    _icon = "ssd.png"
+
+
+class SshKeys(_General):
+    _icon = "ssh-keys.png"
+
+
+class StorageAzureFiles(_General):
+    _icon = "storage-azure-files.png"
+
+
+class StorageContainer(_General):
+    _icon = "storage-container.png"
+
+
+class StorageFunctions(_General):
+    _icon = "storage-functions.png"
+
+
+class StorageHubs(_General):
+    _icon = "storage-hubs.png"
+
+
+class StorageMover(_General):
+    _icon = "storage-mover.png"
+
+
+class StorageQueue(_General):
+    _icon = "storage-queue.png"
+
+
 class Subscriptions(_General):
     _icon = "subscriptions.png"
+
+
+class SupportCenterBlue(_General):
+    _icon = "support-center-blue.png"
 
 
 class Support(_General):
@@ -76,6 +944,14 @@ class Supportrequests(_General):
     _icon = "supportrequests.png"
 
 
+class Sustainability(_General):
+    _icon = "sustainability.png"
+
+
+class Table(_General):
+    _icon = "table.png"
+
+
 class Tag(_General):
     _icon = "tag.png"
 
@@ -84,12 +960,44 @@ class Tags(_General):
     _icon = "tags.png"
 
 
+class TargetsManagement(_General):
+    _icon = "targets-management.png"
+
+
+class TemplateSpecs(_General):
+    _icon = "template-specs.png"
+
+
 class Templates(_General):
     _icon = "templates.png"
 
 
+class TestBase(_General):
+    _icon = "test-base.png"
+
+
+class TfsVcRepository(_General):
+    _icon = "tfs-vc-repository.png"
+
+
+class Toolbox(_General):
+    _icon = "toolbox.png"
+
+
+class ToolchainOrchestrator(_General):
+    _icon = "toolchain-orchestrator.png"
+
+
+class Troubleshoot(_General):
+    _icon = "troubleshoot.png"
+
+
 class Twousericon(_General):
     _icon = "twousericon.png"
+
+
+class UpdateManagementCenter(_General):
+    _icon = "update-management-center.png"
 
 
 class Userhealthicon(_General):
@@ -108,8 +1016,108 @@ class Userresource(_General):
     _icon = "userresource.png"
 
 
+class Versions(_General):
+    _icon = "versions.png"
+
+
+class VideoAnalyzers(_General):
+    _icon = "video-analyzers.png"
+
+
+class VideoIndexer(_General):
+    _icon = "video-indexer.png"
+
+
+class VirtualDesktop(_General):
+    _icon = "virtual-desktop.png"
+
+
+class VirtualEnclaves(_General):
+    _icon = "virtual-enclaves.png"
+
+
+class VirtualInstanceForSAP(_General):
+    _icon = "virtual-instance-for-sap.png"
+
+
+class VirtualVisitsBuilder(_General):
+    _icon = "virtual-visits-builder.png"
+
+
+class VMAppDefinitions(_General):
+    _icon = "vm-app-definitions.png"
+
+
+class VMAppVersions(_General):
+    _icon = "vm-app-versions.png"
+
+
+class VMImageVersion(_General):
+    _icon = "vm-image-version.png"
+
+
+class VmwareSolution(_General):
+    _icon = "vmware-solution.png"
+
+
+class Vpnclientwindows(_General):
+    _icon = "vpnclientwindows.png"
+
+
+class WacInstaller(_General):
+    _icon = "wac-installer.png"
+
+
+class Wac(_General):
+    _icon = "wac.png"
+
+
+class WebAppDatabase(_General):
+    _icon = "web-app-database.png"
+
+
+class WebJobs(_General):
+    _icon = "web-jobs.png"
+
+
+class WebSlots(_General):
+    _icon = "web-slots.png"
+
+
+class WebTest(_General):
+    _icon = "web-test.png"
+
+
+class WebsitePower(_General):
+    _icon = "website-power.png"
+
+
+class WebsiteStaging(_General):
+    _icon = "website-staging.png"
+
+
 class Whatsnew(_General):
     _icon = "whatsnew.png"
+
+
+class WindowsNotificationServices(_General):
+    _icon = "windows-notification-services.png"
+
+
+class Workbooks(_General):
+    _icon = "workbooks.png"
+
+
+class WorkerContainerApp(_General):
+    _icon = "worker-container-app.png"
+
+
+class Workflow(_General):
+    _icon = "workflow.png"
+
+
+class WorkloadOrchestration(_General):
+    _icon = "workload-orchestration.png"
 
 
 # Aliases

@@ -8,16 +8,40 @@ class _Network(_Azure):
     _icon_dir = "resources/azure/network"
 
 
+class ApplicationGatewayContainers(_Network):
+    _icon = "application-gateway-containers.png"
+
+
 class ApplicationGateway(_Network):
     _icon = "application-gateway.png"
+
+
+class ApplicationGateways(_Network):
+    _icon = "application-gateways.png"
 
 
 class ApplicationSecurityGroups(_Network):
     _icon = "application-security-groups.png"
 
 
+class AtmMultistack(_Network):
+    _icon = "atm-multistack.png"
+
+
+class Bastions(_Network):
+    _icon = "bastions.png"
+
+
 class CDNProfiles(_Network):
     _icon = "cdn-profiles.png"
+
+
+class CommunicationsGateway(_Network):
+    _icon = "communications-gateway.png"
+
+
+class ConnectedCache(_Network):
+    _icon = "connected-cache.png"
 
 
 class Connections(_Network):
@@ -28,8 +52,20 @@ class DDOSProtectionPlans(_Network):
     _icon = "ddos-protection-plans.png"
 
 
+class DNSMultistack(_Network):
+    _icon = "dns-multistack.png"
+
+
+class DNSPrivateResolver(_Network):
+    _icon = "dns-private-resolver.png"
+
+
 class DNSPrivateZones(_Network):
     _icon = "dns-private-zones.png"
+
+
+class DNSSecurityPolicy(_Network):
+    _icon = "dns-security-policy.png"
 
 
 class DNSZones(_Network):
@@ -40,12 +76,40 @@ class ExpressrouteCircuits(_Network):
     _icon = "expressroute-circuits.png"
 
 
+class FirewallManager(_Network):
+    _icon = "firewall-manager.png"
+
+
+class FirewallPolicy(_Network):
+    _icon = "firewall-policy.png"
+
+
 class Firewall(_Network):
     _icon = "firewall.png"
 
 
+class Firewalls(_Network):
+    _icon = "firewalls.png"
+
+
+class FrontDoorAndCDNProfiles(_Network):
+    _icon = "front-door-and-cdn-profiles.png"
+
+
 class FrontDoors(_Network):
     _icon = "front-doors.png"
+
+
+class IpAddressManager(_Network):
+    _icon = "ip-address-manager.png"
+
+
+class IpGroups(_Network):
+    _icon = "ip-groups.png"
+
+
+class LoadBalancerHub(_Network):
+    _icon = "load-balancer-hub.png"
 
 
 class LoadBalancers(_Network):
@@ -56,12 +120,20 @@ class LocalNetworkGateways(_Network):
     _icon = "local-network-gateways.png"
 
 
+class Nat(_Network):
+    _icon = "nat.png"
+
+
 class NetworkInterfaces(_Network):
     _icon = "network-interfaces.png"
 
 
 class NetworkSecurityGroupsClassic(_Network):
     _icon = "network-security-groups-classic.png"
+
+
+class NetworkSecurityGroups(_Network):
+    _icon = "network-security-groups.png"
 
 
 class NetworkWatcher(_Network):
@@ -76,12 +148,40 @@ class PrivateEndpoint(_Network):
     _icon = "private-endpoint.png"
 
 
+class PrivateLinkService(_Network):
+    _icon = "private-link-service.png"
+
+
+class PrivateLinkServices(_Network):
+    _icon = "private-link-services.png"
+
+
+class PrivateLink(_Network):
+    _icon = "private-link.png"
+
+
+class ProximityPlacementGroups(_Network):
+    _icon = "proximity-placement-groups.png"
+
+
+class PublicIpAddressesClassic(_Network):
+    _icon = "public-ip-addresses-classic.png"
+
+
 class PublicIpAddresses(_Network):
     _icon = "public-ip-addresses.png"
 
 
+class PublicIpPrefixes(_Network):
+    _icon = "public-ip-prefixes.png"
+
+
 class ReservedIpAddressesClassic(_Network):
     _icon = "reserved-ip-addresses-classic.png"
+
+
+class ResourceManagementPrivateLink(_Network):
+    _icon = "resource-management-private-link.png"
 
 
 class RouteFilters(_Network):
@@ -94,6 +194,18 @@ class RouteTables(_Network):
 
 class ServiceEndpointPolicies(_Network):
     _icon = "service-endpoint-policies.png"
+
+
+class SpotVM(_Network):
+    _icon = "spot-vm.png"
+
+
+class SpotVmss(_Network):
+    _icon = "spot-vmss.png"
+
+
+class Subnet(_Network):
+    _icon = "subnet.png"
 
 
 class Subnets(_Network):
@@ -112,12 +224,28 @@ class VirtualNetworkGateways(_Network):
     _icon = "virtual-network-gateways.png"
 
 
+class VirtualNetworksClassic(_Network):
+    _icon = "virtual-networks-classic.png"
+
+
 class VirtualNetworks(_Network):
     _icon = "virtual-networks.png"
 
 
+class VirtualRouter(_Network):
+    _icon = "virtual-router.png"
+
+
+class VirtualWanHub(_Network):
+    _icon = "virtual-wan-hub.png"
+
+
 class VirtualWans(_Network):
     _icon = "virtual-wans.png"
+
+
+class WebApplicationFirewallPolicieswaf(_Network):
+    _icon = "web-application-firewall-policieswaf.png"
 
 
 # Aliases

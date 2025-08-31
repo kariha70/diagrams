@@ -8,32 +8,96 @@ class _Ml(_Azure):
     _icon_dir = "resources/azure/ml"
 
 
-class AzureOpenAI(_Ml):
-    _icon = "azure-open-ai.png"
+class AIStudio(_Ml):
+    _icon = "ai-studio.png"
 
 
-class AzureSpeechService(_Ml):
-    _icon = "azure-speech-service.png"
+class AnomalyDetector(_Ml):
+    _icon = "anomaly-detector.png"
+
+
+class AppliedAIServices(_Ml):
+    _icon = "applied-ai-services.png"
 
 
 class BatchAI(_Ml):
     _icon = "batch-ai.png"
 
 
+class Bonsai(_Ml):
+    _icon = "bonsai.png"
+
+
 class BotServices(_Ml):
     _icon = "bot-services.png"
+
+
+class CognitiveSearch(_Ml):
+    _icon = "cognitive-search.png"
+
+
+class CognitiveServicesDecisions(_Ml):
+    _icon = "cognitive-services-decisions.png"
 
 
 class CognitiveServices(_Ml):
     _icon = "cognitive-services.png"
 
 
+class ComputerVision(_Ml):
+    _icon = "computer-vision.png"
+
+
+class ContentModerators(_Ml):
+    _icon = "content-moderators.png"
+
+
+class ContentSafety(_Ml):
+    _icon = "content-safety.png"
+
+
+class CustomVision(_Ml):
+    _icon = "custom-vision.png"
+
+
+class ExperimentationStudio(_Ml):
+    _icon = "experimentation-studio.png"
+
+
+class FaceApis(_Ml):
+    _icon = "face-apis.png"
+
+
+class FormRecognizers(_Ml):
+    _icon = "form-recognizers.png"
+
+
 class GenomicsAccounts(_Ml):
     _icon = "genomics-accounts.png"
 
 
+class Genomics(_Ml):
+    _icon = "genomics.png"
+
+
+class ImmersiveReaders(_Ml):
+    _icon = "immersive-readers.png"
+
+
+class LanguageUnderstanding(_Ml):
+    _icon = "language-understanding.png"
+
+
+class Language(_Ml):
+    _icon = "language.png"
+
+
 class MachineLearningServiceWorkspaces(_Ml):
     _icon = "machine-learning-service-workspaces.png"
+
+
+class MachineLearningStudioClassicWebServices(_Ml):
+    _icon = "machine-learning-studio-classic-web-services.png"
 
 
 class MachineLearningStudioWebServicePlans(_Ml):
@@ -46,6 +110,58 @@ class MachineLearningStudioWebServices(_Ml):
 
 class MachineLearningStudioWorkspaces(_Ml):
     _icon = "machine-learning-studio-workspaces.png"
+
+
+class MachineLearning(_Ml):
+    _icon = "machine-learning.png"
+
+
+class MetricsAdvisor(_Ml):
+    _icon = "metrics-advisor.png"
+
+
+class ObjectUnderstanding(_Ml):
+    _icon = "object-understanding.png"
+
+
+class OpenAI(_Ml):
+    _icon = "open-ai.png"
+
+
+class Openai(_Ml):
+    _icon = "openai.png"
+
+
+class Personalizers(_Ml):
+    _icon = "personalizers.png"
+
+
+class QnaMakers(_Ml):
+    _icon = "qna-makers.png"
+
+
+class RemoteRendering(_Ml):
+    _icon = "remote-rendering.png"
+
+
+class ServerlessSearch(_Ml):
+    _icon = "serverless-search.png"
+
+
+class SpatialAnchorAccounts(_Ml):
+    _icon = "spatial-anchor-accounts.png"
+
+
+class SpeechService(_Ml):
+    _icon = "speech-service.png"
+
+
+class SpeechServices(_Ml):
+    _icon = "speech-services.png"
+
+
+class TranslatorText(_Ml):
+    _icon = "translator-text.png"
 
 
 # Aliases

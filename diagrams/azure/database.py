@@ -8,12 +8,32 @@ class _Database(_Azure):
     _icon_dir = "resources/azure/database"
 
 
+class AbsMember(_Database):
+    _icon = "abs-member.png"
+
+
 class BlobStorage(_Database):
     _icon = "blob-storage.png"
 
 
+class BlockchainApplications(_Database):
+    _icon = "blockchain-applications.png"
+
+
+class BlockchainService(_Database):
+    _icon = "blockchain-service.png"
+
+
 class CacheForRedis(_Database):
     _icon = "cache-for-redis.png"
+
+
+class CacheRedis(_Database):
+    _icon = "cache-redis.png"
+
+
+class Consortium(_Database):
+    _icon = "consortium.png"
 
 
 class CosmosDb(_Database):
@@ -22,6 +42,10 @@ class CosmosDb(_Database):
 
 class DataExplorerClusters(_Database):
     _icon = "data-explorer-clusters.png"
+
+
+class DataFactories(_Database):
+    _icon = "data-factories.png"
 
 
 class DataFactory(_Database):
@@ -44,6 +68,26 @@ class DatabaseForPostgresqlServers(_Database):
     _icon = "database-for-postgresql-servers.png"
 
 
+class DatabaseMariadbServer(_Database):
+    _icon = "database-mariadb-server.png"
+
+
+class DatabaseMigrationServices(_Database):
+    _icon = "database-migration-services.png"
+
+
+class DatabaseMysqlServer(_Database):
+    _icon = "database-mysql-server.png"
+
+
+class DatabasePostgresqlServerGroup(_Database):
+    _icon = "database-postgresql-server-group.png"
+
+
+class DatabasePostgresqlServer(_Database):
+    _icon = "database-postgresql-server.png"
+
+
 class ElasticDatabasePools(_Database):
     _icon = "elastic-database-pools.png"
 
@@ -56,8 +100,32 @@ class InstancePools(_Database):
     _icon = "instance-pools.png"
 
 
+class ManagedDatabase(_Database):
+    _icon = "managed-database.png"
+
+
 class ManagedDatabases(_Database):
     _icon = "managed-databases.png"
+
+
+class OracleDatabase(_Database):
+    _icon = "oracle-database.png"
+
+
+class OutboundConnection(_Database):
+    _icon = "outbound-connection.png"
+
+
+class PurviewAccounts(_Database):
+    _icon = "purview-accounts.png"
+
+
+class SQLDataWarehouses(_Database):
+    _icon = "sql-data-warehouses.png"
+
+
+class SQLDatabase(_Database):
+    _icon = "sql-database.png"
 
 
 class SQLDatabases(_Database):
@@ -68,12 +136,32 @@ class SQLDatawarehouse(_Database):
     _icon = "sql-datawarehouse.png"
 
 
+class SQLEdge(_Database):
+    _icon = "sql-edge.png"
+
+
+class SQLElasticPools(_Database):
+    _icon = "sql-elastic-pools.png"
+
+
+class SQLManagedInstance(_Database):
+    _icon = "sql-managed-instance.png"
+
+
 class SQLManagedInstances(_Database):
     _icon = "sql-managed-instances.png"
 
 
+class SQLServerRegistries(_Database):
+    _icon = "sql-server-registries.png"
+
+
 class SQLServerStretchDatabases(_Database):
     _icon = "sql-server-stretch-databases.png"
+
+
+class SQLServer(_Database):
+    _icon = "sql-server.png"
 
 
 class SQLServers(_Database):
@@ -94,6 +182,10 @@ class SsisLiftAndShiftIr(_Database):
 
 class SynapseAnalytics(_Database):
     _icon = "synapse-analytics.png"
+
+
+class TokenService(_Database):
+    _icon = "token-service.png"
 
 
 class VirtualClusters(_Database):

@@ -1,0 +1,1152 @@
+{
+  "analytics/analysis-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044233",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/data-explorer-clusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044126",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/data-factories.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044114",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/data-lake-analytics.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044075",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/data-lake-store-gen1.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044022",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/databricks.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044113",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/event-hub-clusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044118",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/event-hubs.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044244",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/hdinsightclusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044149",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/log-analytics-workspaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044246",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/stream-analytics-jobs.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044107",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "analytics/synapse-analytics.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044247",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "azure.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044080",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/app-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044256",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/automanaged-vm.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044119",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/availability-sets.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044212",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/batch-accounts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044043",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/citrix-virtual-desktops-essentials.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044099",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/cloud-services-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044087",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/cloud-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044264",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/cloudsimple-virtual-machines.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044101",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/container-apps.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044052",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/container-instances.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044069",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/container-registries.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044270",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/disk-encryption-sets.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044056",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/disk-snapshots.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044075",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/disks.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044094",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/function-apps.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044064",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/image-definitions.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044145",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/image-versions.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044078",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/kubernetes-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044054",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/mesh-applications.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044250",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/os-images.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044114",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/sap-hana-on-azure.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044263",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/service-fabric-clusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044221",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/shared-image-galleries.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044033",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/spring-cloud.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044218",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044145",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm-images.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044030",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm-linux.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044054",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm-scale-set.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044261",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm-windows.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044091",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/vm.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044222",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "compute/workspaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044129",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/blob-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044134",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/cache-for-redis.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044136",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/cosmos-db.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044124",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/data-explorer-clusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044120",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/data-factory.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044154",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/data-lake.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044039",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/database-for-mariadb-servers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044102",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/database-for-mysql-servers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044243",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/database-for-postgresql-servers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044245",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/elastic-database-pools.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044059",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/elastic-job-agents.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044067",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/instance-pools.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044098",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/managed-databases.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044034",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-databases.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044049",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-datawarehouse.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044080",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-managed-instances.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044131",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-server-stretch-databases.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044139",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-servers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044049",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql-vm.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044240",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/sql.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044121",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/ssis-lift-and-shift-ir.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044071",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/synapse-analytics.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044232",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/virtual-clusters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044081",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "database/virtual-datacenter.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044265",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/application-insights.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044040",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/artifacts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044104",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/boards.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044248",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/devops.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044119",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/devtest-labs.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044260",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/lab-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044048",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/pipelines.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044271",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/repos.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044128",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "devops/test-plans.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044150",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/allresources.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044106",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/azurehome.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044068",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/developertools.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044122",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/helpsupport.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044156",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/information.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044141",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/managementgroups.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044059",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/marketplace.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044123",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/quickstartcenter.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044146",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/recent.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044273",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/reservations.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044223",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/resource.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044063",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/resourcegroups.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044051",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/servicehealth.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044272",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/shareddashboard.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044019",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/subscriptions.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044073",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/support.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044032",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/supportrequests.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044252",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/tag.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044105",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/tags.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044239",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/templates.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044127",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/twousericon.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044267",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/userhealthicon.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044140",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/usericon.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044230",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/userprivacy.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044267",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/userresource.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044226",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "general/whatsnew.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044037",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/access-review.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044065",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/active-directory-connect-health.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044259",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/active-directory.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044047",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/ad-b2c.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044144",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/ad-domain-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044045",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/ad-identity-protection.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044074",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/ad-privileged-identity-management.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044266",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/app-registrations.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044024",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/conditional-access.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044100",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/enterprise-applications.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044028",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/groups.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044224",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/identity-governance.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044155",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/information-protection.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044095",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/managed-identities.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044234",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "identity/users.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044137",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/api-for-fhir.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044044",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/api-management.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044111",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/app-configuration.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044063",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/data-catalog.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044058",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/event-grid-domains.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044084",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/event-grid-subscriptions.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044151",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/event-grid-topics.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044255",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/integration-accounts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044130",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/integration-service-environments.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044057",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/logic-apps-custom-connector.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044117",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/logic-apps.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044148",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/partner-topic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044242",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/sendgrid-accounts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044042",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/service-bus-relays.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044147",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/service-bus.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044067",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/service-catalog-managed-application-definitions.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044085",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/software-as-a-service.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044243",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/storsimple-device-managers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044035",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "integration/system-topic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044093",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/device-provisioning-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044099",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/digital-twins.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044061",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/iot-central-applications.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044268",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/iot-hub-security.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044143",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/iot-hub.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044250",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/maps.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044254",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/sphere.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044077",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/time-series-insights-environments.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044253",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/time-series-insights-events-sources.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044097",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "iot/windows-10-iot-core-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044276",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "migration/data-box-edge.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044274",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "migration/data-box.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044092",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "migration/database-migration-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044066",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "migration/migration-projects.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044062",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "migration/recovery-services-vaults.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044251",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/azure-open-ai.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044233",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/azure-speech-service.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044070",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/batch-ai.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044258",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/bot-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044112",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/cognitive-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044089",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/genomics-accounts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044090",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/machine-learning-service-workspaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044247",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/machine-learning-studio-web-service-plans.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044138",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/machine-learning-studio-web-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044231",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "ml/machine-learning-studio-workspaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044257",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "mobile/app-service-mobile.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044025",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "mobile/mobile-engagement.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044055",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "mobile/notification-hubs.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044115",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "monitor/change-analysis.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044262",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "monitor/logs.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044263",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "monitor/metrics.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044149",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "monitor/monitor.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044083",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/application-gateway.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044140",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/application-security-groups.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044238",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/cdn-profiles.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044072",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/connections.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044241",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/ddos-protection-plans.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044236",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/dns-private-zones.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044035",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/dns-zones.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044152",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/expressroute-circuits.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044021",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/firewall.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044249",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/front-doors.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044038",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/load-balancers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044220",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/local-network-gateways.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044219",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/network-interfaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044041",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/network-security-groups-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044258",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/network-watcher.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044153",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/on-premises-data-gateways.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044216",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/private-endpoint.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044221",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/public-ip-addresses.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044050",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/reserved-ip-addresses-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044071",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/route-filters.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044125",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/route-tables.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044135",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/service-endpoint-policies.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044094",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/subnets.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044228",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/traffic-manager-profiles.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044031",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/virtual-network-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044237",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/virtual-network-gateways.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044090",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/virtual-networks.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044123",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "network/virtual-wans.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044036",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/application-security-groups.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044131",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/conditional-access.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044086",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/defender.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044103",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/extended-security-updates.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044103",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/key-vaults.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044088",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/security-center.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044275",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "security/sentinel.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044132",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/archive-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044271",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/azurefxtedgefiler.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044133",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/blob-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044229",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/data-box-edge-data-box-gateway.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044076",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/data-box.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044116",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/data-lake-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044085",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/general-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044136",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/netapp-files.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044110",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/queues-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044238",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storage-accounts-classic.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044109",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storage-accounts.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044142",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storage-explorer.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044045",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storage-sync-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044254",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storsimple-data-managers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044235",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/storsimple-device-managers.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044154",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "storage/table-storage.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044023",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/api-connections.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044225",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/app-service-certificates.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044046",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/app-service-domains.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044082",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/app-service-environments.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044079",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/app-service-plans.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044107",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/app-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044108",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/media-services.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044269",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/notification-hub-namespaces.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044127",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/search.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044010",
+    "last_seen_version": "22",
+    "status": "preserved"
+  },
+  "web/signalr.png": {
+    "deprecated_date": "2025-08-31T14:42:02.044053",
+    "last_seen_version": "22",
+    "status": "preserved"
+  }
+}

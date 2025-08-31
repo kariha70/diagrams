@@ -28,12 +28,44 @@ class DataBox(_Storage):
     _icon = "data-box.png"
 
 
+class DataLakeStorageGen1(_Storage):
+    _icon = "data-lake-storage-gen1.png"
+
+
 class DataLakeStorage(_Storage):
     _icon = "data-lake-storage.png"
 
 
+class DataShareInvitations(_Storage):
+    _icon = "data-share-invitations.png"
+
+
+class DataShares(_Storage):
+    _icon = "data-shares.png"
+
+
+class DataboxGateway(_Storage):
+    _icon = "databox-gateway.png"
+
+
+class Fileshares(_Storage):
+    _icon = "fileshares.png"
+
+
 class GeneralStorage(_Storage):
     _icon = "general-storage.png"
+
+
+class HcpCache(_Storage):
+    _icon = "hcp-cache.png"
+
+
+class ImportExportJobs(_Storage):
+    _icon = "import-export-jobs.png"
+
+
+class ManagedFileShares(_Storage):
+    _icon = "managed-file-shares.png"
 
 
 class NetappFiles(_Storage):
@@ -44,12 +76,24 @@ class QueuesStorage(_Storage):
     _icon = "queues-storage.png"
 
 
+class RecoveryServicesVaults(_Storage):
+    _icon = "recovery-services-vaults.png"
+
+
+class StackEdge(_Storage):
+    _icon = "stack-edge.png"
+
+
 class StorageAccountsClassic(_Storage):
     _icon = "storage-accounts-classic.png"
 
 
 class StorageAccounts(_Storage):
     _icon = "storage-accounts.png"
+
+
+class StorageActions(_Storage):
+    _icon = "storage-actions.png"
 
 
 class StorageExplorer(_Storage):

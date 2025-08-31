@@ -8,6 +8,10 @@ class _Migration(_Azure):
     _icon_dir = "resources/azure/migration"
 
 
+class CostManagementAndBilling(_Migration):
+    _icon = "cost-management-and-billing.png"
+
+
 class DataBoxEdge(_Migration):
     _icon = "data-box-edge.png"
 
@@ -20,12 +24,24 @@ class DatabaseMigrationServices(_Migration):
     _icon = "database-migration-services.png"
 
 
+class DataboxGateway(_Migration):
+    _icon = "databox-gateway.png"
+
+
+class Migrate(_Migration):
+    _icon = "migrate.png"
+
+
 class MigrationProjects(_Migration):
     _icon = "migration-projects.png"
 
 
 class RecoveryServicesVaults(_Migration):
     _icon = "recovery-services-vaults.png"
+
+
+class StackEdge(_Migration):
+    _icon = "stack-edge.png"
 
 
 # Aliases

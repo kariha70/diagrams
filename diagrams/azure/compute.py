@@ -8,8 +8,16 @@ class _Compute(_Azure):
     _icon_dir = "resources/azure/compute"
 
 
+class AksAutomatic(_Compute):
+    _icon = "aks-automatic.png"
+
+
 class AppServices(_Compute):
     _icon = "app-services.png"
+
+
+class ApplicationGroup(_Compute):
+    _icon = "application-group.png"
 
 
 class AutomanagedVM(_Compute):
@@ -40,6 +48,14 @@ class CloudsimpleVirtualMachines(_Compute):
     _icon = "cloudsimple-virtual-machines.png"
 
 
+class ComputeFleet(_Compute):
+    _icon = "compute-fleet.png"
+
+
+class ComputeGalleries(_Compute):
+    _icon = "compute-galleries.png"
+
+
 class ContainerApps(_Compute):
     _icon = "container-apps.png"
 
@@ -52,12 +68,24 @@ class ContainerRegistries(_Compute):
     _icon = "container-registries.png"
 
 
+class ContainerServicesDeprecated(_Compute):
+    _icon = "container-services-deprecated.png"
+
+
 class DiskEncryptionSets(_Compute):
     _icon = "disk-encryption-sets.png"
 
 
 class DiskSnapshots(_Compute):
     _icon = "disk-snapshots.png"
+
+
+class DisksClassic(_Compute):
+    _icon = "disks-classic.png"
+
+
+class DisksSnapshots(_Compute):
+    _icon = "disks-snapshots.png"
 
 
 class Disks(_Compute):
@@ -68,24 +96,72 @@ class FunctionApps(_Compute):
     _icon = "function-apps.png"
 
 
+class HostGroups(_Compute):
+    _icon = "host-groups.png"
+
+
+class HostPools(_Compute):
+    _icon = "host-pools.png"
+
+
+class Hosts(_Compute):
+    _icon = "hosts.png"
+
+
 class ImageDefinitions(_Compute):
     _icon = "image-definitions.png"
+
+
+class ImageTemplates(_Compute):
+    _icon = "image-templates.png"
 
 
 class ImageVersions(_Compute):
     _icon = "image-versions.png"
 
 
+class Images(_Compute):
+    _icon = "images.png"
+
+
 class KubernetesServices(_Compute):
     _icon = "kubernetes-services.png"
+
+
+class MaintenanceConfiguration(_Compute):
+    _icon = "maintenance-configuration.png"
+
+
+class ManagedServiceFabric(_Compute):
+    _icon = "managed-service-fabric.png"
 
 
 class MeshApplications(_Compute):
     _icon = "mesh-applications.png"
 
 
+class MetricsAdvisor(_Compute):
+    _icon = "metrics-advisor.png"
+
+
+class OsImagesClassic(_Compute):
+    _icon = "os-images-classic.png"
+
+
 class OsImages(_Compute):
     _icon = "os-images.png"
+
+
+class RedHatOpenshift(_Compute):
+    _icon = "red-hat-openshift.png"
+
+
+class RestorePointsCollections(_Compute):
+    _icon = "restore-points-collections.png"
+
+
+class RestorePoints(_Compute):
+    _icon = "restore-points.png"
 
 
 class SAPHANAOnAzure(_Compute):
@@ -100,12 +176,28 @@ class SharedImageGalleries(_Compute):
     _icon = "shared-image-galleries.png"
 
 
+class SpringApps(_Compute):
+    _icon = "spring-apps.png"
+
+
 class SpringCloud(_Compute):
     _icon = "spring-cloud.png"
 
 
+class VirtualMachine(_Compute):
+    _icon = "virtual-machine.png"
+
+
+class VirtualMachinesClassic(_Compute):
+    _icon = "virtual-machines-classic.png"
+
+
 class VMClassic(_Compute):
     _icon = "vm-classic.png"
+
+
+class VMImagesClassic(_Compute):
+    _icon = "vm-images-classic.png"
 
 
 class VMImages(_Compute):
@@ -118,6 +210,10 @@ class VMLinux(_Compute):
 
 class VMScaleSet(_Compute):
     _icon = "vm-scale-set.png"
+
+
+class VMScaleSets(_Compute):
+    _icon = "vm-scale-sets.png"
 
 
 class VMWindows(_Compute):
@@ -136,4 +232,4 @@ class Workspaces(_Compute):
 
 ACR = ContainerRegistries
 AKS = KubernetesServices
-VMSS = VMScaleSet
+VMSS = VMScaleSets
