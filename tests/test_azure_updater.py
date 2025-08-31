@@ -56,15 +56,36 @@ class AzureUpdaterTest(unittest.TestCase):
         else:
             delattr(cfg, 'AZURE_CATEGORY_MAP')
 
+    def test_configuration_values(self):
+        """Test that new configuration values are properly defined."""
+        # Check new configuration parameters exist
+        self.assertTrue(hasattr(cfg, 'AZURE_ICON_TIMEOUT'), "AZURE_ICON_TIMEOUT should be defined")
+        self.assertTrue(hasattr(cfg, 'AZURE_ICON_RETRY_COUNT'), "AZURE_ICON_RETRY_COUNT should be defined")
+        self.assertTrue(hasattr(cfg, 'AZURE_BACKUP_COUNT'), "AZURE_BACKUP_COUNT should be defined")
+        self.assertTrue(hasattr(cfg, 'AZURE_EXCLUDED_FOLDERS'), "AZURE_EXCLUDED_FOLDERS should be defined")
+        self.assertTrue(hasattr(cfg, 'AZURE_REPORT_FORMATS'), "AZURE_REPORT_FORMATS should be defined")
+        
+        # Check types and values
+        self.assertIsInstance(cfg.AZURE_ICON_TIMEOUT, int)
+        self.assertIsInstance(cfg.AZURE_ICON_RETRY_COUNT, int)
+        self.assertIsInstance(cfg.AZURE_BACKUP_COUNT, int)
+        self.assertIsInstance(cfg.AZURE_EXCLUDED_FOLDERS, list)
+        self.assertIsInstance(cfg.AZURE_REPORT_FORMATS, list)
+        
+        # Check reasonable values
+        self.assertGreater(cfg.AZURE_ICON_TIMEOUT, 0)
+        self.assertGreater(cfg.AZURE_ICON_RETRY_COUNT, 0)
+        self.assertGreater(cfg.AZURE_BACKUP_COUNT, 0)
+
     def test_show_download_progress(self):
         """Test download progress display."""
-        # Test progress calculation
+        # Test progress calculation with new format including MB display
         with patch('builtins.print') as mock_print:
             azure_updater.show_download_progress(50, 1024, 102400)
-            mock_print.assert_called_with("Downloading: 50.0%", end='\r')
+            mock_print.assert_called_with("Downloading: 50.0% (0.0/0.1 MB)", end='\r')
 
             azure_updater.show_download_progress(100, 1024, 102400)
-            mock_print.assert_called_with("Downloading: 100.0%", end='\r')
+            mock_print.assert_called_with("Downloading: 100.0% (0.1/0.1 MB)", end='\r')
 
     def test_get_current_icons(self):
         """Test getting current icon list."""
@@ -626,7 +647,7 @@ class ResourceIntegrationTest(unittest.TestCase):
         self.assertIn('update_icons', resource.commands)
         self.assertIn('backup_icons', resource.commands)
         self.assertIn('rollback_icons', resource.commands)
-        self.assertIn('check_icons', resource.commands)
+        self.assertIn('check_icon_updates', resource.commands)
 
     def test_azure_commands_callable(self):
         """Test that Azure commands are callable."""
@@ -636,7 +657,7 @@ class ResourceIntegrationTest(unittest.TestCase):
         self.assertTrue(callable(resource.commands['update_icons']))
         self.assertTrue(callable(resource.commands['backup_icons']))
         self.assertTrue(callable(resource.commands['rollback_icons']))
-        self.assertTrue(callable(resource.commands['check_icons']))
+        self.assertTrue(callable(resource.commands['check_icon_updates']))
 
 
 if __name__ == '__main__':

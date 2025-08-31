@@ -505,6 +505,13 @@ AZURE_ICON_SOURCE = {
     "backup_dir": ".azure_backups",
 }
 
+# Azure updater configuration settings
+AZURE_ICON_TIMEOUT = 300  # Download timeout in seconds
+AZURE_ICON_RETRY_COUNT = 3  # Number of download retries
+AZURE_BACKUP_COUNT = 5  # Number of backups to keep
+AZURE_EXCLUDED_FOLDERS = ["__MACOSX", ".DS_Store"]  # Folders to skip during extraction
+AZURE_REPORT_FORMATS = ["txt", "json"]  # Report output formats (can add "md" for markdown)
+
 # Azure update behavior configuration
 # "additive": Never delete existing icons, only add/update (default, safe)
 # "sync": Delete icons not in source, full synchronization (breaking changes possible)

@@ -25,6 +25,22 @@ def cleaner_azure(filename: str) -> str:
     Apply Azure filename cleansing rules.
     Duplicated from resource.py to avoid circular import.
     Enhanced to handle new Azure icon naming patterns.
+    
+    Examples:
+        "10001--icon-service-Azure-OpenAI.svg" → "azure-openai.svg"
+        "00000-icon-service-API-Management.svg" → "api-management.svg"
+        "Azure-Sphere.svg" → "sphere.svg"
+        "ML + AI.svg" → "ml-ai.svg"
+        "Data & Analytics.svg" → "data-and-analytics.svg"
+        "Container Apps (preview).svg" → "container-apps-preview.svg"
+    
+    Rules applied in order:
+        1. Remove numeric prefixes (5+ digits followed by hyphens)
+        2. Remove "icon-service-" prefix
+        3. Replace special characters (+, &, spaces, parentheses)
+        4. Collapse multiple hyphens
+        5. Remove Azure prefixes from config
+        6. Convert to lowercase
     """
     import re
 
@@ -72,10 +88,12 @@ def cleaner_azure(filename: str) -> str:
 
 
 def show_download_progress(block_num: int, block_size: int, total_size: int) -> None:
-    """Show download progress."""
+    """Show download progress with size information."""
     downloaded = block_num * block_size
     percent = min(downloaded * 100 / total_size, 100)
-    print(f"Downloading: {percent:.1f}%", end='\r')
+    mb_downloaded = downloaded / (1024 * 1024)
+    mb_total = total_size / (1024 * 1024)
+    print(f"Downloading: {percent:.1f}% ({mb_downloaded:.1f}/{mb_total:.1f} MB)", end='\r')
 
 
 def get_current_icons(pvd: str) -> Set[str]:
@@ -158,11 +176,11 @@ def download_azure_icons(pvd: str) -> str:
         str: Path to extracted icons directory
     """
     if not hasattr(cfg, 'AZURE_ICON_SOURCE'):
-        raise ValueError("AZURE_ICON_SOURCE not configured in config.py")
+        raise ValueError("Error: AZURE_ICON_SOURCE not configured in config.py\nPlease ensure config.py contains AZURE_ICON_SOURCE dictionary")
 
     url = cfg.AZURE_ICON_SOURCE.get('download_url')
     if not url:
-        raise ValueError("No download_url specified in AZURE_ICON_SOURCE")
+        raise ValueError("Error: No download_url specified in AZURE_ICON_SOURCE\nPlease check config.py AZURE_ICON_SOURCE['download_url']")
 
     print(f"Downloading Azure icons from: {url}")
 
@@ -170,8 +188,13 @@ def download_azure_icons(pvd: str) -> str:
     temp_dir = tempfile.mkdtemp(prefix="azure_icons_")
     zip_path = os.path.join(temp_dir, "azure_icons.zip")
 
+    # Get timeout from config or use default
+    timeout = getattr(cfg, 'AZURE_ICON_TIMEOUT', 300)
+    
     try:
-        # Download the file
+        # Download the file with timeout
+        import socket
+        socket.setdefaulttimeout(timeout)
         request.urlretrieve(url, zip_path, reporthook=show_download_progress)
         print("\nDownload complete!")
 
@@ -181,6 +204,13 @@ def download_azure_icons(pvd: str) -> str:
 
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(extract_dir)
+        
+        # Skip excluded folders from config
+        excluded = getattr(cfg, 'AZURE_EXCLUDED_FOLDERS', ['__MACOSX', '.DS_Store'])
+        for excluded_folder in excluded:
+            excluded_path = os.path.join(extract_dir, excluded_folder)
+            if os.path.exists(excluded_path):
+                shutil.rmtree(excluded_path, ignore_errors=True)
 
         # Remove the zip file to save space
         os.remove(zip_path)
@@ -190,7 +220,17 @@ def download_azure_icons(pvd: str) -> str:
     except Exception as e:
         # Clean up on error
         shutil.rmtree(temp_dir, ignore_errors=True)
-        raise Exception(f"Failed to download Azure icons: {e}")
+        error_msg = f"""Error downloading Azure icons: {e}
+
+Troubleshooting:
+1. Check internet connection
+2. Verify URL is accessible: {url}
+3. Try increasing timeout in config.py (AZURE_ICON_TIMEOUT = {timeout})
+4. Check if Microsoft has changed the download URL
+
+For manual download, visit:
+https://learn.microsoft.com/en-us/azure/architecture/icons/"""
+        raise Exception(error_msg)
 
 
 def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
@@ -203,7 +243,7 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
         Dict: Statistics about the mapping process
     """
     if not hasattr(cfg, 'AZURE_CATEGORY_MAP'):
-        raise ValueError("AZURE_CATEGORY_MAP not configured in config.py")
+        raise ValueError("Error: AZURE_CATEGORY_MAP not configured in config.py\nThis dictionary maps Microsoft categories to diagrams categories")
 
     stats = {
         'total_downloaded': 0,
@@ -219,6 +259,15 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
 
     # Track which icons we process
     processed_icons = set()
+    
+    # Count total categories and files for progress reporting
+    total_categories = 0
+    for root, dirs, files in os.walk(source_dir):
+        if any(f.endswith('.svg') for f in files):
+            total_categories += 1
+    
+    print(f"  Found {total_categories} Microsoft categories to process")
+    categories_processed = 0
 
     # Find all SVG files in the source directory
     for root, dirs, files in os.walk(source_dir):
@@ -276,12 +325,14 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
                 stats['final_category_counts'][diag_category] = 0
             stats['final_category_counts'][diag_category] += len(svg_files)
 
-            print(f"  Mapped {ms_category} -> {diag_category} ({len(svg_files)} icons)")
+            categories_processed += 1
+            print(f"  [{categories_processed}/{total_categories}] Mapped {ms_category} -> {diag_category} ({len(svg_files)} icons)")
         else:
             # Unmapped category
             stats['unmapped_categories'].append(ms_category)
             stats['total_downloaded'] += len(svg_files)
-            print(f"  WARNING: Unmapped category '{ms_category}' with {len(svg_files)} icons")
+            categories_processed += 1
+            print(f"  [{categories_processed}/{total_categories}] WARNING: Unmapped category '{ms_category}' with {len(svg_files)} icons")
 
     # Get existing icons that weren't processed (preserved icons)
     existing_icons = get_current_icons("azure")
@@ -491,6 +542,8 @@ def update_icons(pvd: str) -> None:
 
         # Step 5: Map and copy icons
         print("\nMapping categories and copying icons...")
+        print(f"  Source: {extracted_dir}")
+        print(f"  Target: {azure_dir}")
         stats = map_and_copy_icons(extracted_dir, azure_dir)
 
         # Step 6: Get new icon list

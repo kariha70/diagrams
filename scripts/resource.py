@@ -37,6 +37,16 @@ def cleaner_aws(f):
 
 
 def cleaner_azure(f):
+    """
+    Apply Azure filename cleansing rules.
+    
+    Examples:
+        "10001--icon-service-Azure-OpenAI" → "azure-openai"
+        "icon-service-API-Management" → "api-management"
+        "Azure-Sphere" → "sphere"
+        "ML + AI" → "ml-ai"
+        "Data & Analytics" → "data-and-analytics"
+    """
     import re
 
     # Remove numeric prefix (NNNNN- pattern)
@@ -316,18 +326,67 @@ def svg2png2(pvd: str) -> None:
         [_convert(root, path) for path in svgs]
 
 
+# Provider-specific icon updater registry
+icon_updaters = {}
+
 # Import Azure updater functions
 try:
-    from .azure_updater import backup_icons, check_icon_updates, rollback_icons, update_icons
-    icon_commands = {
-        "update_icons": update_icons,
-        "backup_icons": backup_icons,
-        "rollback_icons": rollback_icons,
-        "check_icons": check_icon_updates,
+    from .azure_updater import (
+        backup_icons as azure_backup,
+        check_icon_updates as azure_check,
+        rollback_icons as azure_rollback,
+        update_icons as azure_update
+    )
+    icon_updaters["azure"] = {
+        "update": azure_update,
+        "backup": azure_backup,
+        "rollback": azure_rollback,
+        "check": azure_check,
     }
 except ImportError:
-    # Icon updater not available
-    icon_commands = {}
+    # Azure updater not available
+    pass
+
+# Future: Add other providers here
+# try:
+#     from .aws_updater import ...
+#     icon_updaters["aws"] = {...}
+# except ImportError:
+#     pass
+
+
+def update_icons(pvd: str) -> None:
+    """Update icons for the specified provider."""
+    if pvd not in icon_updaters:
+        print(f"Error: Icon updater not available for provider '{pvd}'")
+        print(f"Available providers: {', '.join(icon_updaters.keys()) if icon_updaters else 'none'}")
+        return
+    icon_updaters[pvd]["update"](pvd)
+
+
+def backup_icons(pvd: str) -> None:
+    """Backup icons for the specified provider."""
+    if pvd not in icon_updaters:
+        print(f"Error: Icon backup not available for provider '{pvd}'")
+        return
+    icon_updaters[pvd]["backup"](pvd)
+
+
+def rollback_icons(pvd: str) -> None:
+    """Rollback icons for the specified provider."""
+    if pvd not in icon_updaters:
+        print(f"Error: Icon rollback not available for provider '{pvd}'")
+        return
+    icon_updaters[pvd]["rollback"](pvd)
+
+
+def check_icon_updates(pvd: str) -> None:
+    """Check for icon updates for the specified provider."""
+    if pvd not in icon_updaters:
+        print(f"Error: Update checker not available for provider '{pvd}'")
+        return
+    icon_updaters[pvd]["check"](pvd)
+
 
 # fmt: off
 commands = {
@@ -337,7 +396,11 @@ commands = {
     "svg2png2": svg2png2,
     "svg2png_sharp": svg2png_sharp,  # Direct access to sharp converter
     "svg2png_inkscape": svg2png_inkscape,  # Direct access to inkscape converter
-    **icon_commands,  # Add icon update commands if available
+    # Icon management commands with provider routing
+    "update_icons": update_icons,
+    "backup_icons": backup_icons,
+    "rollback_icons": rollback_icons,
+    "check_icon_updates": check_icon_updates,
 }
 # fmt: on
 
