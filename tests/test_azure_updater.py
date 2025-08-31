@@ -1,3 +1,4 @@
+import json
 import os
 import shutil
 import tempfile
@@ -193,10 +194,13 @@ class AzureUpdaterTest(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(target_dir, "storage", "blob.svg")))
 
     def test_generate_update_report(self):
-        """Test update report generation."""
+        """Test update report generation for additive mode."""
         stats = {
             'total_downloaded': 100,
             'mapped_count': 95,
+            'new_icons': ["compute/new.png"],
+            'updated_icons': ["compute/existing.png"],
+            'preserved_icons': ["compute/old.png"],
             'unmapped_categories': ['Unknown1', 'Unknown2'],
             'category_mappings': {
                 'Compute': 'compute',
@@ -217,19 +221,90 @@ class AzureUpdaterTest(unittest.TestCase):
 
         report = azure_updater.generate_update_report(stats, previous, current)
 
-        # Check report contains expected sections
-        self.assertIn("AZURE ICON UPDATE REPORT", report)
+        # Check report contains expected sections for additive mode
+        self.assertIn("AZURE ICON UPDATE REPORT (Additive Mode)", report)
         self.assertIn("## SUMMARY", report)
         self.assertIn("Total icons downloaded: 100", report)
         self.assertIn("Successfully mapped: 95", report)
+        self.assertIn("New icons added:", report)
+        self.assertIn("Icons updated:", report)
+        self.assertIn("Icons preserved", report)
         self.assertIn("## CATEGORY MAPPING", report)
         self.assertIn("Compute -> compute (50 icons)", report)
         self.assertIn("## NEW ICONS", report)
         self.assertIn("+ compute/new.png", report)
-        self.assertIn("## REMOVED ICONS", report)
-        self.assertIn("- compute/old.png", report)
+        self.assertIn("## UPDATED ICONS", report)
+        self.assertIn("↻ compute/existing.png", report)
+        self.assertIn("## PRESERVED ICONS", report)
+        self.assertIn("⚠ compute/old.png", report)
         self.assertIn("## UNMAPPED CATEGORIES", report)
         self.assertIn("! Unknown1", report)
+
+    def test_additive_mode_preserves_icons(self):
+        """Test that additive mode does not delete existing icons."""
+        # Create a temporary directory structure
+        with tempfile.TemporaryDirectory() as temp_dir:
+            source_dir = os.path.join(temp_dir, "source")
+            target_dir = os.path.join(temp_dir, "target")
+            
+            # Create existing icons in target (these should be preserved)
+            os.makedirs(os.path.join(target_dir, "compute"))
+            existing_icon = os.path.join(target_dir, "compute", "old-icon.svg")
+            with open(existing_icon, 'w') as f:
+                f.write('<svg>old</svg>')
+            
+            # Create new icons in source
+            os.makedirs(os.path.join(source_dir, "Compute"))
+            new_icon = os.path.join(source_dir, "Compute", "new-icon.svg")
+            with open(new_icon, 'w') as f:
+                f.write('<svg>new</svg>')
+            
+            # Mock get_current_icons to return our test existing icon
+            with patch('scripts.azure_updater.get_current_icons') as mock_get_icons:
+                mock_get_icons.return_value = {"compute/old-icon.svg"}
+                
+                # Run map_and_copy_icons
+                stats = azure_updater.map_and_copy_icons(source_dir, target_dir)
+                
+                # Check that old icon still exists (preserved)
+                self.assertTrue(os.path.exists(existing_icon), "Existing icon should be preserved")
+                
+                # Check that new icon was added
+                self.assertTrue(os.path.exists(os.path.join(target_dir, "compute", "new-icon.svg")))
+                
+                # Check stats
+                self.assertIn("compute/old-icon.svg", stats['preserved_icons'])
+                self.assertIn("compute/new-icon.svg", stats['new_icons'])
+
+    def test_deprecation_manifest_creation(self):
+        """Test creation and update of deprecation manifest."""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            preserved_icons = ["compute/old1.svg", "storage/old2.svg"]
+            
+            # Create deprecation manifest
+            azure_updater.update_deprecation_manifest(preserved_icons, temp_dir)
+            
+            manifest_path = os.path.join(temp_dir, ".deprecated_icons.json")
+            self.assertTrue(os.path.exists(manifest_path))
+            
+            # Load and check manifest
+            with open(manifest_path, 'r') as f:
+                manifest = json.load(f)
+            
+            self.assertIn("compute/old1.svg", manifest)
+            self.assertIn("storage/old2.svg", manifest)
+            self.assertEqual(manifest["compute/old1.svg"]["status"], "preserved")
+            
+            # Update with new deprecated icons
+            new_preserved = ["compute/old3.svg"]
+            azure_updater.update_deprecation_manifest(new_preserved, temp_dir)
+            
+            with open(manifest_path, 'r') as f:
+                updated_manifest = json.load(f)
+            
+            # Check all icons are still tracked
+            self.assertEqual(len(updated_manifest), 3)
+            self.assertIn("compute/old3.svg", updated_manifest)
 
     def test_save_report(self):
         """Test saving report to files."""

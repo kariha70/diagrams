@@ -505,6 +505,17 @@ AZURE_ICON_SOURCE = {
     "backup_dir": ".azure_backups",
 }
 
+# Azure update behavior configuration
+# "additive": Never delete existing icons, only add/update (default, safe)
+# "sync": Delete icons not in source, full synchronization (breaking changes possible)
+AZURE_UPDATE_MODE = "additive"
+
+# Preserve icons that are no longer in Microsoft's collection
+AZURE_PRESERVE_DEPRECATED = True
+
+# Track deprecated icons in a manifest file
+AZURE_TRACK_DEPRECATIONS = True
+
 # Category mapping from Microsoft folders to diagrams structure
 AZURE_CATEGORY_MAP = {
     # Standard Azure categories - Title case (older versions)

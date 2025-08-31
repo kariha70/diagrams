@@ -196,6 +196,8 @@ def download_azure_icons(pvd: str) -> str:
 def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
     """
     Map Microsoft categories to diagrams structure and copy icons.
+    
+    Now tracks whether icons are new, updated, or preserved.
 
     Returns:
         Dict: Statistics about the mapping process
@@ -206,12 +208,17 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
     stats = {
         'total_downloaded': 0,
         'mapped_count': 0,
+        'new_icons': [],        # Icons that didn't exist before
+        'updated_icons': [],    # Icons that were overwritten
         'unmapped_categories': [],
         'category_mappings': {},
         'category_counts': {},
         'final_category_counts': {},
         'icon_list': []
     }
+
+    # Track which icons we process
+    processed_icons = set()
 
     # Find all SVG files in the source directory
     for root, dirs, files in os.walk(source_dir):
@@ -244,11 +251,21 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
                 name_without_ext = svg_file[:-4] if svg_file.endswith('.svg') else svg_file
                 cleaned_name = cleaner_azure(name_without_ext) + '.svg'
                 target_file = os.path.join(target_cat_dir, cleaned_name)
+                relative_path = f"{diag_category}/{cleaned_name}"
+                
+                # Track if this is new or updated
+                if os.path.exists(target_file):
+                    stats['updated_icons'].append(relative_path)
+                else:
+                    stats['new_icons'].append(relative_path)
+                
+                # Copy the file
                 shutil.copy2(source_file, target_file)
+                processed_icons.add(relative_path)
 
                 stats['total_downloaded'] += 1
                 stats['mapped_count'] += 1
-                stats['icon_list'].append(f"{diag_category}/{cleaned_name}")
+                stats['icon_list'].append(relative_path)
 
             # Update statistics
             stats['category_mappings'][ms_category] = diag_category
@@ -266,14 +283,18 @@ def map_and_copy_icons(source_dir: str, target_dir: str) -> Dict:
             stats['total_downloaded'] += len(svg_files)
             print(f"  WARNING: Unmapped category '{ms_category}' with {len(svg_files)} icons")
 
+    # Get existing icons that weren't processed (preserved icons)
+    existing_icons = get_current_icons("azure")
+    stats['preserved_icons'] = list(existing_icons - processed_icons)
+
     return stats
 
 
 def generate_update_report(stats: Dict, previous_icons: Set[str], current_icons: Set[str]) -> str:
-    """Generate detailed update report."""
+    """Generate detailed update report for additive updates."""
     report = []
     report.append("=" * 60)
-    report.append("AZURE ICON UPDATE REPORT")
+    report.append("AZURE ICON UPDATE REPORT (Additive Mode)")
     report.append(f"Date: {datetime.now().isoformat()}")
 
     if hasattr(cfg, 'AZURE_ICON_SOURCE'):
@@ -283,17 +304,14 @@ def generate_update_report(stats: Dict, previous_icons: Set[str], current_icons:
 
     report.append("=" * 60)
 
-    # Calculate new and removed icons
-    stats['new_icons'] = list(current_icons - previous_icons)
-    stats['removed_icons'] = list(previous_icons - current_icons)
-
     # Summary Statistics
     report.append("\n## SUMMARY")
     report.append(f"Total icons downloaded: {stats['total_downloaded']}")
     report.append(f"Successfully mapped: {stats['mapped_count']}")
+    report.append(f"New icons added: {len(stats.get('new_icons', []))}")
+    report.append(f"Icons updated: {len(stats.get('updated_icons', []))}")
+    report.append(f"Icons preserved (not in source): {len(stats.get('preserved_icons', []))}")
     report.append(f"Unmapped categories: {len(stats['unmapped_categories'])}")
-    report.append(f"New icons: {len(stats['new_icons'])}")
-    report.append(f"Removed icons: {len(stats['removed_icons'])}")
 
     # Category Mapping Details
     if stats['category_mappings']:
@@ -303,20 +321,29 @@ def generate_update_report(stats: Dict, previous_icons: Set[str], current_icons:
             report.append(f"  {ms_cat} -> {diag_cat} ({count} icons)")
 
     # New Icons
-    if stats['new_icons']:
+    if stats.get('new_icons'):
         report.append(f"\n## NEW ICONS ({len(stats['new_icons'])})")
         for icon in sorted(stats['new_icons'])[:20]:  # Show first 20
             report.append(f"  + {icon}")
         if len(stats['new_icons']) > 20:
             report.append(f"  ... and {len(stats['new_icons']) - 20} more")
 
-    # Removed Icons
-    if stats['removed_icons']:
-        report.append(f"\n## REMOVED ICONS ({len(stats['removed_icons'])})")
-        for icon in sorted(stats['removed_icons'])[:20]:  # Show first 20
-            report.append(f"  - {icon}")
-        if len(stats['removed_icons']) > 20:
-            report.append(f"  ... and {len(stats['removed_icons']) - 20} more")
+    # Updated Icons
+    if stats.get('updated_icons'):
+        report.append(f"\n## UPDATED ICONS ({len(stats['updated_icons'])})")
+        for icon in sorted(stats['updated_icons'])[:20]:  # Show first 20
+            report.append(f"  ↻ {icon}")
+        if len(stats['updated_icons']) > 20:
+            report.append(f"  ... and {len(stats['updated_icons']) - 20} more")
+
+    # Preserved Icons (deprecated but kept for backward compatibility)
+    if stats.get('preserved_icons'):
+        report.append(f"\n## PRESERVED ICONS ({len(stats['preserved_icons'])})")
+        report.append("These icons are no longer in the Azure source but kept for backward compatibility:")
+        for icon in sorted(stats['preserved_icons'])[:20]:  # Show first 20
+            report.append(f"  ⚠ {icon}")
+        if len(stats['preserved_icons']) > 20:
+            report.append(f"  ... and {len(stats['preserved_icons']) - 20} more")
 
     # Unmapped Categories
     if stats['unmapped_categories']:
@@ -333,6 +360,50 @@ def generate_update_report(stats: Dict, previous_icons: Set[str], current_icons:
             report.append(f"  {cat}: {count}")
 
     return "\n".join(report)
+
+
+def update_deprecation_manifest(preserved_icons: List[str], azure_dir: str) -> None:
+    """
+    Track icons preserved for backward compatibility.
+    
+    Creates or updates a manifest file that tracks icons that are no longer
+    in Microsoft's collection but are kept for backward compatibility.
+    
+    Args:
+        preserved_icons: List of icon paths that are preserved but not in source
+        azure_dir: Azure resource directory path
+    """
+    manifest_path = os.path.join(azure_dir, '.deprecated_icons.json')
+    
+    manifest = {}
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, 'r') as f:
+                manifest = json.load(f)
+        except (json.JSONDecodeError, IOError):
+            # If manifest is corrupted, start fresh
+            manifest = {}
+    
+    # Add newly deprecated icons with timestamp
+    current_version = cfg.AZURE_ICON_SOURCE.get('current_version', 'Unknown') if hasattr(cfg, 'AZURE_ICON_SOURCE') else 'Unknown'
+    
+    for icon in preserved_icons:
+        if icon not in manifest:
+            manifest[icon] = {
+                'deprecated_date': datetime.now().isoformat(),
+                'last_seen_version': current_version,
+                'status': 'preserved'
+            }
+        else:
+            # Update status if it was previously removed but now exists
+            manifest[icon]['status'] = 'preserved'
+            manifest[icon]['last_update'] = datetime.now().isoformat()
+    
+    # Save updated manifest
+    with open(manifest_path, 'w') as f:
+        json.dump(manifest, f, indent=2, sort_keys=True)
+    
+    print(f"  Updated deprecation manifest: {len(preserved_icons)} preserved icons tracked")
 
 
 def save_report(report: str, stats: Dict) -> None:
@@ -380,7 +451,17 @@ def update_icons(pvd: str) -> None:
         print(f"Error: update_icons only works for 'azure' provider, got '{pvd}'")
         return
 
-    print("\n=== Starting Azure Icon Update ===\n")
+    # Check update mode configuration
+    update_mode = getattr(cfg, 'AZURE_UPDATE_MODE', 'additive')
+    preserve_deprecated = getattr(cfg, 'AZURE_PRESERVE_DEPRECATED', True)
+    track_deprecations = getattr(cfg, 'AZURE_TRACK_DEPRECATIONS', True)
+    
+    mode_desc = "Additive Mode" if update_mode == "additive" else "Sync Mode"
+    print(f"\n=== Starting Azure Icon Update ({mode_desc}) ===\n")
+    
+    if update_mode != "additive":
+        print("⚠️  WARNING: Sync mode may delete existing icons and break backward compatibility!")
+        print("  Consider using 'additive' mode (AZURE_UPDATE_MODE = 'additive' in config.py)")
 
     try:
         # Step 1: Get current icons for comparison
@@ -395,12 +476,18 @@ def update_icons(pvd: str) -> None:
         print("\nDownloading new icons...")
         extracted_dir = download_azure_icons(pvd)
 
-        # Step 4: Clear existing icons (we have backup)
+        # Step 4: Handle Azure directory based on update mode
         azure_dir = resource_dir(pvd)
-        if os.path.exists(azure_dir):
-            print(f"\nClearing existing icons at {azure_dir}")
-            shutil.rmtree(azure_dir)
-        os.makedirs(azure_dir, exist_ok=True)
+        if update_mode == "sync":
+            # Sync mode: Clear existing icons (original behavior)
+            if os.path.exists(azure_dir):
+                print(f"\nClearing existing icons at {azure_dir} (sync mode)")
+                shutil.rmtree(azure_dir)
+            os.makedirs(azure_dir, exist_ok=True)
+        else:
+            # Additive mode: Preserve existing icons (new behavior)
+            os.makedirs(azure_dir, exist_ok=True)
+            print(f"\nUsing Azure directory: {azure_dir} (preserving existing icons)")
 
         # Step 5: Map and copy icons
         print("\nMapping categories and copying icons...")
@@ -409,12 +496,17 @@ def update_icons(pvd: str) -> None:
         # Step 6: Get new icon list
         current_icons = set(stats['icon_list'])
 
-        # Step 7: Generate and save report
+        # Step 7: Update deprecation manifest if enabled and icons were preserved
+        if track_deprecations and stats.get('preserved_icons'):
+            print("\nUpdating deprecation manifest...")
+            update_deprecation_manifest(stats['preserved_icons'], azure_dir)
+
+        # Step 8: Generate and save report
         print("\nGenerating update report...")
         report = generate_update_report(stats, previous_icons, current_icons)
         save_report(report, stats)
 
-        # Step 8: Clean up temp directory
+        # Step 9: Clean up temp directory
         print("\nCleaning up temporary files...")
         shutil.rmtree(extracted_dir, ignore_errors=True)
         if os.path.exists(os.path.dirname(extracted_dir)):
@@ -422,10 +514,11 @@ def update_icons(pvd: str) -> None:
 
         # Print summary
         print("\n" + "=" * 60)
-        print("UPDATE COMPLETE!")
+        print("UPDATE COMPLETE! (Additive Mode)")
         print(f"  Total icons: {stats['mapped_count']}")
-        print(f"  New icons: {len(stats.get('new_icons', []))}")
-        print(f"  Removed icons: {len(stats.get('removed_icons', []))}")
+        print(f"  New icons added: {len(stats.get('new_icons', []))}")
+        print(f"  Icons updated: {len(stats.get('updated_icons', []))}")
+        print(f"  Icons preserved: {len(stats.get('preserved_icons', []))}")
 
         if stats['unmapped_categories']:
             print(f"\n  ⚠️  {len(stats['unmapped_categories'])} unmapped categories require attention!")
